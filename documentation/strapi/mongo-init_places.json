@@ -1,0 +1,782 @@
+[{
+  "_id": {
+    "$oid": "628a5a9dfa7d19001b85e657"
+  },
+  "radius": 50,
+  "publicContent": false,
+  "icon": "postal_code",
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "public": true,
+  "tags": [
+    {
+      "$oid": "615eb4900ace7f0016333fc1"
+    }
+  ],
+  "groups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T15:45:33.141Z"
+  },
+  "locale": "fi",
+  "longitude": 21.79342031478882,
+  "latitude": 61.49054198382634,
+  "description": "Taavi-silta",
+  "name": "Taavi-silta",
+  "slug": "taavi-silta",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.79342031478882,
+      61.49054198382634
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.79342031478882,
+        61.49054198382634
+      ]
+    },
+    "properties": {
+      "radius": 50
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T15:45:33.281Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T15:52:40.064Z"
+  },
+  "__v": 0,
+  "cover": null
+},{
+  "_id": {
+    "$oid": "628a5ad5fa7d19001b85e658"
+  },
+  "radius": 50,
+  "publicContent": false,
+  "icon": "postal_code",
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "public": true,
+  "tags": [
+    {
+      "$oid": "615eb4900ace7f0016333fc1"
+    }
+  ],
+  "groups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T15:46:29.027Z"
+  },
+  "locale": "fi",
+  "longitude": 21.78539514541626,
+  "latitude": 61.49014254993444,
+  "description": "Vuonna 1973 valmistunut Raumansilta...",
+  "name": "Raumansilta",
+  "slug": "raumansilta",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.78539514541626,
+      61.49014254993444
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.78539514541626,
+        61.49014254993444
+      ]
+    },
+    "properties": {
+      "radius": 50
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T15:46:29.166Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T15:52:15.739Z"
+  },
+  "__v": 0,
+  "cover": null
+},{
+  "_id": {
+    "$oid": "628a5b79fa7d19001b85e659"
+  },
+  "radius": 60,
+  "publicContent": false,
+  "icon": "postal_code",
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "public": true,
+  "tags": [
+    {
+      "$oid": "615eb4900ace7f0016333fc1"
+    }
+  ],
+  "groups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T15:49:13.527Z"
+  },
+  "locale": "fi",
+  "longitude": 21.757194399833683,
+  "latitude": 61.49276694162455,
+  "description": "Alunperin asuntomessuja varten rakennettu Niittäjänsilta helpottaa kulkemista Karjarannasta Raumanjuovan yli Hevosluotoon.",
+  "name": "Niittäjänsilta",
+  "slug": "niittajansilta",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.757194399833683,
+      61.49276694162455
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.757194399833683,
+        61.49276694162455
+      ]
+    },
+    "properties": {
+      "radius": 60
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T15:49:13.670Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T15:50:54.549Z"
+  },
+  "__v": 0,
+  "cover": null,
+  "content": "Alunperin asuntomessuja varten rakennettu Niittäjänsilta helpottaa kulkemista Karjarannasta Raumanjuovan yli Hevosluotoon.\n\nViidestä osasta koottu silta helpottaa kesän ajan kulkua Hevosluodon ulkoilureittien ja muiden palveluiden pariin.\n\nLuodolla sijaitsevat esimerkiksi Porin kaupungin ylläpitämä ruokapuisto sekä siirtolapuutarha."
+},{
+  "_id": {
+    "$oid": "628a5c8dfa7d19001b85e65a"
+  },
+  "radius": 100,
+  "publicContent": false,
+  "icon": "postal_code",
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "public": true,
+  "tags": [
+    {
+      "$oid": "615eb4900ace7f0016333fc1"
+    }
+  ],
+  "groups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T15:53:49.748Z"
+  },
+  "locale": "fi",
+  "longitude": 21.77024602890015,
+  "latitude": 61.49489957693323,
+  "description": "Hevosluodon sillat...",
+  "name": "Hevosluodon sillat",
+  "slug": "hevosluodon-sillat",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.77024602890015,
+      61.49489957693323
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.77024602890015,
+        61.49489957693323
+      ]
+    },
+    "properties": {
+      "radius": 100
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T15:53:49.898Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T15:54:05.434Z"
+  },
+  "__v": 0,
+  "cover": null
+},{
+  "_id": {
+    "$oid": "628a6038fa7d19001b85e65d"
+  },
+  "radius": 40,
+  "publicContent": false,
+  "icon": "postal_code",
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "public": true,
+  "tags": [
+    {
+      "$oid": "615eb4900ace7f0016333fc1"
+    }
+  ],
+  "groups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T16:09:27.912Z"
+  },
+  "locale": "fi",
+  "longitude": 21.778593063354492,
+  "latitude": 61.49135107779491,
+  "description": "Kuvaus",
+  "name": "Silta",
+  "slug": "silta",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.778593063354492,
+      61.49135107779491
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.778593063354492,
+        61.49135107779491
+      ]
+    },
+    "properties": {
+      "radius": 40
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T16:09:28.069Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T16:29:11.952Z"
+  },
+  "__v": 0,
+  "cover": null
+},{
+  "_id": {
+    "$oid": "628a6062fa7d19001b85e65e"
+  },
+  "radius": 100,
+  "publicContent": false,
+  "icon": "postal_code",
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "public": true,
+  "tags": [
+    {
+      "$oid": "615eb4900ace7f0016333fc1"
+    }
+  ],
+  "groups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T16:10:10.805Z"
+  },
+  "locale": "fi",
+  "longitude": 21.787905693054203,
+  "latitude": 61.49419810197884,
+  "description": "Kuvaus",
+  "name": "Kirjurin sillat",
+  "slug": "kirjurin-sillat",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.787905693054203,
+      61.49419810197884
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.787905693054203,
+        61.49419810197884
+      ]
+    },
+    "properties": {
+      "radius": 100
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T16:10:10.969Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T16:27:48.977Z"
+  },
+  "__v": 0,
+  "cover": null
+},{
+  "_id": {
+    "$oid": "628a6093fa7d19001b85e65f"
+  },
+  "radius": 100,
+  "publicContent": false,
+  "icon": "postal_code",
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "public": true,
+  "tags": [
+    {
+      "$oid": "615eb4900ace7f0016333fc1"
+    }
+  ],
+  "groups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T16:10:59.084Z"
+  },
+  "locale": "fi",
+  "longitude": 21.786929368972782,
+  "latitude": 61.49655335675155,
+  "description": "Kuvaus",
+  "name": "Pormestarinsilta",
+  "slug": "pormestarinsilta",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.786929368972782,
+      61.49655335675155
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.786929368972782,
+        61.49655335675155
+      ]
+    },
+    "properties": {
+      "radius": 100
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T16:10:59.239Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T16:29:01.708Z"
+  },
+  "__v": 0,
+  "cover": null
+},{
+  "_id": {
+    "$oid": "628a60b0fa7d19001b85e660"
+  },
+  "radius": 100,
+  "publicContent": false,
+  "icon": "postal_code",
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "public": true,
+  "tags": [
+    {
+      "$oid": "615eb4900ace7f0016333fc1"
+    }
+  ],
+  "groups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T16:11:28.122Z"
+  },
+  "locale": "fi",
+  "longitude": 21.800297498703003,
+  "latitude": 61.491048950229555,
+  "description": "Kuvaus",
+  "name": "Porinsilta",
+  "slug": "porinsilta",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.800297498703003,
+      61.491048950229555
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.800297498703003,
+        61.491048950229555
+      ]
+    },
+    "properties": {
+      "radius": 100
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T16:11:28.295Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T16:28:55.634Z"
+  },
+  "__v": 0,
+  "cover": null
+},{
+  "_id": {
+    "$oid": "628a60c5fa7d19001b85e661"
+  },
+  "radius": 80,
+  "publicContent": false,
+  "icon": "postal_code",
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "public": true,
+  "tags": [
+    {
+      "$oid": "615eb4900ace7f0016333fc1"
+    }
+  ],
+  "groups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T16:11:49.739Z"
+  },
+  "locale": "fi",
+  "longitude": 21.8034303188324,
+  "latitude": 61.49095677513416,
+  "description": "Kuvaus",
+  "name": "Linnansilta",
+  "slug": "linnansilta",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.8034303188324,
+      61.49095677513416
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.8034303188324,
+        61.49095677513416
+      ]
+    },
+    "properties": {
+      "radius": 80
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T16:11:49.918Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T16:28:48.129Z"
+  },
+  "__v": 0,
+  "cover": null
+},{
+  "_id": {
+    "$oid": "628a6116fa7d19001b85e662"
+  },
+  "radius": 100,
+  "publicContent": false,
+  "icon": "postal_code",
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "public": true,
+  "tags": [
+    {
+      "$oid": "615eb4900ace7f0016333fc1"
+    }
+  ],
+  "groups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T16:13:10.350Z"
+  },
+  "locale": "fi",
+  "longitude": 21.840434074401855,
+  "latitude": 61.49180682399659,
+  "description": "Kuvaus",
+  "name": "Koillisväylä",
+  "slug": "koillisvayla",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.840434074401855,
+      61.49180682399659
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.840434074401855,
+        61.49180682399659
+      ]
+    },
+    "properties": {
+      "radius": 100
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T16:13:10.522Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T16:28:41.199Z"
+  },
+  "__v": 0,
+  "cover": null
+},{
+  "_id": {
+    "$oid": "628a6130fa7d19001b85e663"
+  },
+  "radius": 90,
+  "publicContent": false,
+  "icon": "postal_code",
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "public": true,
+  "tags": [
+    {
+      "$oid": "615eb4900ace7f0016333fc1"
+    }
+  ],
+  "groups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T16:13:36.740Z"
+  },
+  "locale": "fi",
+  "longitude": 21.853866577148438,
+  "latitude": 61.491269145185676,
+  "description": "Kuvaus",
+  "name": "Vanha rautatiesilta",
+  "slug": "vanha-rautatiesilta",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.853866577148438,
+      61.491269145185676
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.853866577148438,
+        61.491269145185676
+      ]
+    },
+    "properties": {
+      "radius": 90
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T16:13:36.914Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T16:29:23.578Z"
+  },
+  "__v": 0,
+  "cover": null
+},{
+  "_id": {
+    "$oid": "628a6150fa7d19001b85e664"
+  },
+  "radius": 20,
+  "publicContent": false,
+  "icon": "postal_code",
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "public": true,
+  "tags": [
+    {
+      "$oid": "615eb4900ace7f0016333fc1"
+    }
+  ],
+  "groups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T16:14:08.521Z"
+  },
+  "locale": "fi",
+  "longitude": 21.846163499834464,
+  "latitude": 61.48430265652367,
+  "description": "Kuvaus",
+  "name": "Varvourinjuovan rautatiesilta",
+  "slug": "varvourinjuovan-rautatiesilta",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.846163499834464,
+      61.48430265652367
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.846163499834464,
+        61.48430265652367
+      ]
+    },
+    "properties": {
+      "radius": 20
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T16:14:08.688Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T16:29:31.912Z"
+  },
+  "__v": 0,
+  "cover": null
+},{
+  "_id": {
+    "$oid": "628a6168fa7d19001b85e665"
+  },
+  "radius": 30,
+  "publicContent": false,
+  "icon": "postal_code",
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "public": true,
+  "tags": [
+    {
+      "$oid": "615eb4900ace7f0016333fc1"
+    }
+  ],
+  "groups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T16:14:32.560Z"
+  },
+  "locale": "fi",
+  "longitude": 21.839463114738468,
+  "latitude": 61.485346382458,
+  "description": "Kuvaus",
+  "name": "Varvourinsilta",
+  "slug": "varvourinsilta",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.839463114738468,
+      61.485346382458
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.839463114738468,
+        61.485346382458
+      ]
+    },
+    "properties": {
+      "radius": 30
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T16:14:32.786Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T16:29:40.746Z"
+  },
+  "__v": 0,
+  "cover": null
+}]

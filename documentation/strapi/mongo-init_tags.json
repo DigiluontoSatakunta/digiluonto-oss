@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "615eb4900ace7f0016333fc1"
+  },
+  "localizations": [],
+  "name": "Muu nähtävyys",
+  "locale": "fi",
+  "slug": "muu-nahtavyys",
+  "createdAt": {
+    "$date": "2022-06-16T13:37:03.206Z"
+  },
+  "updatedAt": {
+    "$date": "2022-06-16T13:37:03.214Z"
+  },
+  "__v": 0,
+  "created_by": {
+    "$oid": "62ab0f45f1836900c558d94b"
+  },
+  "updated_by": {
+    "$oid": "62ab0f45f1836900c558d94b"
+  }
+}]

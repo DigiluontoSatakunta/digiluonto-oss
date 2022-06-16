@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "5fdb7d0f353b6812516cb926"
+  },
+  "primaryColor": "#f44336",
+  "secondaryColor": "#f44336",
+  "textColor": "#ffffff",
+  "verified": true,
+  "name": "Digiluonto",
+  "description": "Kehitysryhmän oma ryhmä, jossa **esitellään** ja *kokeillaan* erilaisia ratkaisuja sisällöntuotantoon.",
+  "token": "DIGILUONTO",
+  "createdAt": {
+    "$date": "2022-06-16T15:45:19.638Z"
+  },
+  "updatedAt": {
+    "$date": "2022-06-16T15:45:19.638Z"
+  },
+  "__v": 0,
+  "cover": {
+    "$oid": "5fc94315f0bf8afd27d5bade"
+  },
+  "created_by": null,
+  "updated_by": null,
+  "slug": "digiluonto",
+  "admins": [],
+  "members": [],
+  "welcome": "Koe maakunnan huippukohteet pintaa syvemmältä! Valitse alta mieleisesi teemapolku ja tutustu kohteisiin liikkuessasi. ",
+  "showPublicContent": true,
+  "dataSources": [],
+  "logo": {
+    "$oid": "605c9c1871c51e000e5e97b6"
+  },
+  "locale": "fi",
+  "localizations": [
+    {
+      "$oid": "60a38cfa3c4b41001559387b"
+    }
+  ],
+  "homepageTitle": "www.digiluonto.fi",
+  "homepageUrl": "https://www.digiluonto.fi",
+  "sharedJourneys": [],
+  "numberOfJourneys": 50,
+  "numberOfPlaces": 500,
+  "showMascot": true,
+  "vessels": [],
+  "desktopCover": {
+    "$oid": "619409309a324700156ec857"
+  },
+  "latitude": 61.4924,
+  "longitude": 21.8004,
+  "zoom": 10
+}]

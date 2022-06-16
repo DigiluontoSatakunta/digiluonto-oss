@@ -1,0 +1,124 @@
+[{
+  "_id": {
+    "$oid": "628a5a61fa7d19001b85e656"
+  },
+  "distance": 0,
+  "duration": 120,
+  "difficulty": "easy",
+  "groupSize": null,
+  "targetGroup": null,
+  "category": null,
+  "accessibility": "accessibilityNormal",
+  "elevation": 10,
+  "audioLoop": false,
+  "publishDate": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "expirationDate": {
+    "$date": "2029-12-31T21:59:00Z"
+  },
+  "public": true,
+  "featured": false,
+  "showNextPlace": true,
+  "calculateDistance": true,
+  "radius": 5610,
+  "showPlacesInJourneysArea": false,
+  "allowRating": true,
+  "places": [
+    {
+      "$oid": "628a5b79fa7d19001b85e659"
+    },
+    {
+      "$oid": "628a5ad5fa7d19001b85e658"
+    },
+    {
+      "$oid": "628a5a9dfa7d19001b85e657"
+    },
+    {
+      "$oid": "628a5c8dfa7d19001b85e65a"
+    },
+    {
+      "$oid": "628a6062fa7d19001b85e65e"
+    },
+    {
+      "$oid": "628a6116fa7d19001b85e662"
+    },
+    {
+      "$oid": "628a60c5fa7d19001b85e661"
+    },
+    {
+      "$oid": "628a60b0fa7d19001b85e660"
+    },
+    {
+      "$oid": "628a6093fa7d19001b85e65f"
+    },
+    {
+      "$oid": "628a6038fa7d19001b85e65d"
+    },
+    {
+      "$oid": "628a6130fa7d19001b85e663"
+    },
+    {
+      "$oid": "628a6150fa7d19001b85e664"
+    },
+    {
+      "$oid": "628a6168fa7d19001b85e665"
+    }
+  ],
+  "tags": [],
+  "commonGroups": [
+    {
+      "$oid": "5fdb7d0f353b6812516cb926"
+    }
+  ],
+  "localizations": [],
+  "published_at": {
+    "$date": "2022-05-22T15:44:33.717Z"
+  },
+  "locale": "fi",
+  "longitude": 21.797647476196293,
+  "latitude": 61.490244969369805,
+  "excerpt": "Tutustu Porin keskustan lukuisiin erilaisiin siltoihin ja niiden historiaan. Polku on tarkoitettu erityisesti pyöräilijöille.",
+  "name": "Porin sillat",
+  "slug": "porin-sillat",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      21.797647476196293,
+      61.490244969369805
+    ]
+  },
+  "geoJSON": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        21.797647476196293,
+        61.490244969369805
+      ]
+    },
+    "properties": {
+      "name": "Porin sillat"
+    }
+  },
+  "links": [],
+  "createdAt": {
+    "$date": "2022-05-22T15:44:33.870Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-22T16:29:40.745Z"
+  },
+  "__v": 0,
+  "author": {
+    "$oid": "62ab0f45f1836900c558d94b"
+  },
+  "cover": null,
+  "ownerGroup": {
+    "$oid": "5fdb7d0f353b6812516cb926"
+  },
+  "gpx": null,
+  "updated_by": {
+    "$oid": "62ab0f45f1836900c558d94b"
+  },
+  "route": null
+}]
