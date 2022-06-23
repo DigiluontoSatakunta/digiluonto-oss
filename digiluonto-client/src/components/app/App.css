@@ -1,0 +1,136 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.App {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100%;
+  max-height: 100%;
+}
+
+.App > main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 960px) {
+  .map-with-slider-layout .App > main {
+    display: grid;
+    grid-template-areas: "title map" "slider map";
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: 53px 1fr;
+  }
+
+  .map-with-slider-layout [data-element="journey-cards-card"] {
+    width: 340px;
+  }
+
+  .map-with-slider-layout [data-element="journey-cards-dots"] {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .map-with-slider-layout [data-element="slider-title"] {
+    margin-top: 0 !important;
+  }
+}
+
+.splide__pagination.splide-dots {
+  position: relative;
+  padding: 1rem;
+}
+.splide__pagination.splide-dots .splide-single-dot {
+  height: 14px;
+  width: 14px;
+}
+.splide__pagination.splide-dots .splide__pagination__page.is-active {
+  background: #202020;
+  transform: scale(1.1);
+}
+.splide__arrows .splide__arrow {
+  top: 45%;
+}
+
+@media only screen and (min-width: 900px) {
+  body .splide.is-initialized {
+    flex: 1 0 auto;
+    margin-bottom: 24px;
+  }
+  body .splide.is-initialized:not(.is-active) .splide__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+.App span.MuiButton-label {
+  text-transform: none !important;
+}
+
+blockquote {
+  margin: 0 0 0 0.5rem;
+  padding-left: 1rem;
+  border-left: 0.5rem #eee solid;
+  font-style: italic;
+}
+
+html.a-fullscreen .a-canvas {
+  width: 100% !important;
+  height: 79% !important;
+  top: 110 px !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  position: fixed !important;
+}
+
+#mascot {
+  animation-name: slideInUp;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+}
+
+#mascot-bubble {
+  animation-name: fadeIn;
+  animation-delay: 2s;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.slideInUp {
+  animation-name: slideInUp;
+}

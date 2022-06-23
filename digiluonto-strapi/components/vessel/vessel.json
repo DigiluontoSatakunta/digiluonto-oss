@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_vessel_vessels",
+  "info": {
+    "name": "Vessel",
+    "icon": "anchor"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "mmsi": {
+      "type": "string"
+    }
+  }
+}

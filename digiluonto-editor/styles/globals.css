@@ -1,0 +1,48 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+}
+
+input {
+  accent-color: #f44336;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.recharts-legend-wrapper {
+  visibility: hidden;
+}
+
+h5,
+h6 {
+  text-transform: uppercase;
+}
+
+h6 {
+  font-size: "1.1rem";
+}
+
+img.leaflet-marker-icon {
+  padding: 4px !important;
+}
+
+.column-journey {
+  max-width: 75px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.MuiTabs-scrollButtons.Mui-disabled {
+  opacity: 0.3 !important;
+}

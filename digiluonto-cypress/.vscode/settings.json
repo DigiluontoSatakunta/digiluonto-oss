@@ -1,0 +1,8 @@
+{
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "standard.enable": false,
+  "eslint.enable": true
+}

@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "name": "Event",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "type": {
+      "type": "string",
+      "required": true,
+      "minLength": 1
+    },
+    "message": {
+      "type": "string"
+    },
+    "group": {
+      "model": "group"
+    },
+    "journey": {
+      "model": "journey"
+    },
+    "place": {
+      "model": "place"
+    },
+    "event": {
+      "model": "event"
+    },
+    "badge": {
+      "model": "badge"
+    },
+    "uid": {
+      "type": "string",
+      "required": true
+    },
+    "service": {
+      "model": "service"
+    },
+    "data": {
+      "type": "json"
+    },
+    "local": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

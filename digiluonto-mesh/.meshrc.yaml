@@ -1,0 +1,94 @@
+serve:
+  fork: 0
+  port: 4000
+  browser: false
+  cors:
+    origin: "*"
+  hostname: "0.0.0.0"
+sources:
+  - name: Strapi
+    handler:
+      graphql:
+        endpoint: http://strapi:1337/graphql
+  - name: DigitrafficMarine
+    handler:
+      openapi:
+        source: swagger/digitraffic-marine.json
+        baseUrl: https://meri.digitraffic.fi
+        operationIdFieldNames: true
+        operationHeaders:
+          Digitraffic-User: TUNI/Digiluonto.fi
+          Accept-Encoding: gzip
+    transforms:
+      - cache:
+        - field: Query.*
+          invalidate:
+            ttl: 30 # seconds
+  - name: Lipas
+    handler:
+      openapi:
+        source: swagger/lipas.json
+        baseUrl: http://lipas.cc.jyu.fi/api
+    transforms:
+      - prefix:
+          mode: bare
+          value: Lipas_
+          includeRootOperations: true
+      - cache:
+        - field: Query.*
+          invalidate:
+            ttl: 604800 # 1 week
+  - name: PoriLuontokohteet
+    handler:
+      jsonSchema:
+        baseUrl: https://opendata.arcgis.com/datasets
+        operations:
+          - type: Query
+            field: luontokohteet
+            description: Porin luontokohteet
+            path: /21290852c34c4cf69411f97a02e51a3f_0.geojson
+            method: GET
+            responseSchema: ./json-schemas/luontokohteet.json
+    transforms:
+      - prefix:
+          mode: bare
+          value: PoriLuontokohteet_
+          includeRootOperations: true
+      - cache:
+        - field: Query.*
+          invalidate:
+            ttl: 604800 # 1 week
+  - name: Tulikartta
+    handler:
+      jsonSchema:
+        baseUrl: https://tulikartta.fi
+        operationHeaders:
+          Accept-Charset: utf-8
+        operations:
+          - type: Query
+            field: fireplaces
+            description: Tulikartan tulentekopaikat
+            path: /api-json.php?tyyppi={args.FireplaceType}&maakunta={args.FireplaceCounty}
+            method: GET
+            responseSchema: ./json-schemas/tulikartta.json
+    transforms:
+      - prefix:
+          mode: bare
+          value: Tulikartta_
+          includeRootOperations: true
+      - cache:
+        - field: Query.*
+          invalidate:
+            ttl: 604800 # 1 week
+transforms:
+  - cache:
+    - field: Query.*
+      invalidate:
+        ttl: 120
+    - field: Query.events
+      invalidate:
+        ttl: 1
+cache:
+  redis:
+    host: redis
+    port: "6379"

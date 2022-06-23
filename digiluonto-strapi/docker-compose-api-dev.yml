@@ -1,0 +1,113 @@
+version: "3.7"
+
+services:
+  strapi:
+    image: strapi/strapi:3.6.8
+    container_name: strapi
+    hostname: strapi
+    env_file: .env
+    environment:
+      STRAPI_HOST: ${STRAPI_HOST}
+      STRAPI_PORT: ${STRAPI_PORT}
+      STRAPI_ADMIN: ${STRAPI_ADMIN}
+      STRAPI_LOG_LEVEL: ${STRAPI_LOG_LEVEL}
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_SRV: ${DATABASE_SRV}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      AUTHENTICATION_DATABASE: ${AUTHENTICATION_DATABASE}
+      DATABASE_SSL: ${DATABASE_SSL}
+      SENTRY_DSN: ${SENTRY_DSN}
+      STRAPI_DISABLE_UPDATE_NOTIFICATION: 1
+      STRAPI_HIDE_STARTUP_MESSAGE: 1
+      STRAPI_TELEMETRY_DISABLED: 1
+    volumes:
+      - ../digiluonto-strapi:/srv/app
+    depends_on:
+      - mongo
+      - redis
+    ports:
+      - "1337:1337"
+    networks:
+      - digiluonto
+    restart: always
+
+  mongo:
+    image: mongo:4.4
+    container_name: mongo
+    hostname: mongo
+    env_file: .env
+    environment:
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - data-digiluonto-mongodb:/data/db
+    networks:
+      - digiluonto
+    ports:
+      - "27017:27017"
+    restart: always
+
+  redis:
+    image: redis:6.2-alpine
+    hostname: redis
+    command: redis-server --bind 0.0.0.0 --port 6379 --appendonly no --save ""
+    restart: always
+    volumes:
+      - redis_cache:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - digiluonto
+
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+      - REDIS_PASSWORD=redis
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis
+    networks:
+      - digiluonto
+
+  mesh:
+    hostname: mesh
+    build:
+      dockerfile: ${PWD}/../digiluonto-mesh/Dockerfile
+      context: ../digiluonto-mesh
+    tty: true
+    stdin_open: true
+    env_file: .env
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      WAIT_HOSTS: ${MESH_WAIT_HOSTS}
+      WAIT_BEFORE: ${WAIT_BEFORE}
+    ports:
+      - "4000:4000"
+    networks:
+      - digiluonto
+    depends_on:
+      - strapi
+      - redis
+    restart: always
+
+volumes:
+  data-digiluonto-mongodb:
+    name: data-digiluonto-mongodb
+    external: true
+  redis_cache: {}
+
+networks:
+  default:
+    name: digiluonto
+  digiluonto:
+    external: true

@@ -1,0 +1,3170 @@
+input FileInfoInput {
+  name: String
+  alternativeText: String
+  caption: String
+}
+
+type UsersPermissionsMe {
+  id: ID!
+  username: String!
+  email: String!
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsMeRole
+}
+
+type UsersPermissionsMeRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+}
+
+input UsersPermissionsRegisterInput {
+  username: String!
+  email: String!
+  password: String!
+}
+
+input UsersPermissionsLoginInput {
+  identifier: String!
+  password: String!
+  provider: String = "local"
+}
+
+type UsersPermissionsLoginPayload {
+  jwt: String
+  user: UsersPermissionsMe!
+}
+
+type UserPermissionsPasswordPayload {
+  ok: Boolean!
+}
+
+input LocationInput {
+  latitude: Float!
+  longitude: Float!
+  distance: Int!
+}
+
+type About {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  content: String
+  title: String!
+  locale: String
+  localizations(sort: String, limit: Int, start: Int, where: JSON): [About]
+}
+
+input AboutInput {
+  content: String
+  title: String
+  localizations: [ID]
+  locale: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editAboutInput {
+  content: String
+  title: String
+  localizations: [ID]
+  locale: String
+  created_by: ID
+  updated_by: ID
+}
+
+input updateAboutInput {
+  data: editAboutInput
+}
+
+type updateAboutPayload {
+  about: About
+}
+
+type deleteAboutPayload {
+  about: About
+}
+
+type Badge {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  description: String
+  image: UploadFile
+  locale: String
+  localizations(sort: String, limit: Int, start: Int, where: JSON): [Badge]
+}
+
+type BadgeConnection {
+  values: [Badge]
+  groupBy: BadgeGroupBy
+  aggregate: BadgeAggregator
+}
+
+type BadgeAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type BadgeGroupBy {
+  id: [BadgeConnectionId]
+  _id: [BadgeConnection_id]
+  createdAt: [BadgeConnectionCreatedAt]
+  updatedAt: [BadgeConnectionUpdatedAt]
+  name: [BadgeConnectionName]
+  description: [BadgeConnectionDescription]
+  image: [BadgeConnectionImage]
+  locale: [BadgeConnectionLocale]
+}
+
+type BadgeConnectionId {
+  key: ID
+  connection: BadgeConnection
+}
+
+type BadgeConnection_id {
+  key: ID
+  connection: BadgeConnection
+}
+
+type BadgeConnectionCreatedAt {
+  key: DateTime
+  connection: BadgeConnection
+}
+
+type BadgeConnectionUpdatedAt {
+  key: DateTime
+  connection: BadgeConnection
+}
+
+type BadgeConnectionName {
+  key: String
+  connection: BadgeConnection
+}
+
+type BadgeConnectionDescription {
+  key: String
+  connection: BadgeConnection
+}
+
+type BadgeConnectionImage {
+  key: ID
+  connection: BadgeConnection
+}
+
+type BadgeConnectionLocale {
+  key: String
+  connection: BadgeConnection
+}
+
+input BadgeInput {
+  name: String!
+  description: String
+  image: ID
+  localizations: [ID]
+  locale: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editBadgeInput {
+  name: String
+  description: String
+  image: ID
+  localizations: [ID]
+  locale: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createBadgeInput {
+  data: BadgeInput
+}
+
+type createBadgePayload {
+  badge: Badge
+}
+
+input updateBadgeInput {
+  where: InputID
+  data: editBadgeInput
+}
+
+type updateBadgePayload {
+  badge: Badge
+}
+
+input deleteBadgeInput {
+  where: InputID
+}
+
+type deleteBadgePayload {
+  badge: Badge
+}
+
+type Customer {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  Billing: ComponentBillingBillingInformation
+  Contact: ComponentContactContact
+  groups(sort: String, limit: Int, start: Int, where: JSON): [Group]
+}
+
+type CustomerConnection {
+  values: [Customer]
+  groupBy: CustomerGroupBy
+  aggregate: CustomerAggregator
+}
+
+type CustomerAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type CustomerGroupBy {
+  id: [CustomerConnectionId]
+  _id: [CustomerConnection_id]
+  createdAt: [CustomerConnectionCreatedAt]
+  updatedAt: [CustomerConnectionUpdatedAt]
+  name: [CustomerConnectionName]
+  Billing: [CustomerConnectionBilling]
+  Contact: [CustomerConnectionContact]
+}
+
+type CustomerConnectionId {
+  key: ID
+  connection: CustomerConnection
+}
+
+type CustomerConnection_id {
+  key: ID
+  connection: CustomerConnection
+}
+
+type CustomerConnectionCreatedAt {
+  key: DateTime
+  connection: CustomerConnection
+}
+
+type CustomerConnectionUpdatedAt {
+  key: DateTime
+  connection: CustomerConnection
+}
+
+type CustomerConnectionName {
+  key: String
+  connection: CustomerConnection
+}
+
+type CustomerConnectionBilling {
+  key: ID
+  connection: CustomerConnection
+}
+
+type CustomerConnectionContact {
+  key: ID
+  connection: CustomerConnection
+}
+
+input CustomerInput {
+  name: String
+  groups: [ID]
+  Billing: ComponentBillingBillingInformationInput
+  Contact: ComponentContactContactInput
+  created_by: ID
+  updated_by: ID
+}
+
+input editCustomerInput {
+  name: String
+  groups: [ID]
+  Billing: editComponentBillingBillingInformationInput
+  Contact: editComponentContactContactInput
+  created_by: ID
+  updated_by: ID
+}
+
+input createCustomerInput {
+  data: CustomerInput
+}
+
+type createCustomerPayload {
+  customer: Customer
+}
+
+input updateCustomerInput {
+  where: InputID
+  data: editCustomerInput
+}
+
+type updateCustomerPayload {
+  customer: Customer
+}
+
+input deleteCustomerInput {
+  where: InputID
+}
+
+type deleteCustomerPayload {
+  customer: Customer
+}
+
+type DataSource {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  slug: String
+  description: String
+}
+
+type DataSourceConnection {
+  values: [DataSource]
+  groupBy: DataSourceGroupBy
+  aggregate: DataSourceAggregator
+}
+
+type DataSourceAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type DataSourceGroupBy {
+  id: [DataSourceConnectionId]
+  _id: [DataSourceConnection_id]
+  createdAt: [DataSourceConnectionCreatedAt]
+  updatedAt: [DataSourceConnectionUpdatedAt]
+  name: [DataSourceConnectionName]
+  slug: [DataSourceConnectionSlug]
+  description: [DataSourceConnectionDescription]
+}
+
+type DataSourceConnectionId {
+  key: ID
+  connection: DataSourceConnection
+}
+
+type DataSourceConnection_id {
+  key: ID
+  connection: DataSourceConnection
+}
+
+type DataSourceConnectionCreatedAt {
+  key: DateTime
+  connection: DataSourceConnection
+}
+
+type DataSourceConnectionUpdatedAt {
+  key: DateTime
+  connection: DataSourceConnection
+}
+
+type DataSourceConnectionName {
+  key: String
+  connection: DataSourceConnection
+}
+
+type DataSourceConnectionSlug {
+  key: String
+  connection: DataSourceConnection
+}
+
+type DataSourceConnectionDescription {
+  key: String
+  connection: DataSourceConnection
+}
+
+input DataSourceInput {
+  name: String
+  slug: String
+  description: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editDataSourceInput {
+  name: String
+  slug: String
+  description: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createDataSourceInput {
+  data: DataSourceInput
+}
+
+type createDataSourcePayload {
+  dataSource: DataSource
+}
+
+input updateDataSourceInput {
+  where: InputID
+  data: editDataSourceInput
+}
+
+type updateDataSourcePayload {
+  dataSource: DataSource
+}
+
+input deleteDataSourceInput {
+  where: InputID
+}
+
+type deleteDataSourcePayload {
+  dataSource: DataSource
+}
+
+type Event {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  type: String!
+  message: String
+  group: Group
+  journey: Journey
+  place: Place
+  event: Event
+  badge: Badge
+  uid: String
+  service: Service
+}
+
+type EventConnection {
+  values: [Event]
+  groupBy: EventGroupBy
+  aggregate: EventAggregator
+}
+
+type EventAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type EventGroupBy {
+  id: [EventConnectionId]
+  _id: [EventConnection_id]
+  createdAt: [EventConnectionCreatedAt]
+  updatedAt: [EventConnectionUpdatedAt]
+  type: [EventConnectionType]
+  message: [EventConnectionMessage]
+  group: [EventConnectionGroup]
+  journey: [EventConnectionJourney]
+  place: [EventConnectionPlace]
+  event: [EventConnectionEvent]
+  badge: [EventConnectionBadge]
+  uid: [EventConnectionUid]
+  service: [EventConnectionService]
+}
+
+type EventConnectionId {
+  key: ID
+  connection: EventConnection
+}
+
+type EventConnection_id {
+  key: ID
+  connection: EventConnection
+}
+
+type EventConnectionCreatedAt {
+  key: DateTime
+  connection: EventConnection
+}
+
+type EventConnectionUpdatedAt {
+  key: DateTime
+  connection: EventConnection
+}
+
+type EventConnectionType {
+  key: String
+  connection: EventConnection
+}
+
+type EventConnectionMessage {
+  key: String
+  connection: EventConnection
+}
+
+type EventConnectionGroup {
+  key: ID
+  connection: EventConnection
+}
+
+type EventConnectionJourney {
+  key: ID
+  connection: EventConnection
+}
+
+type EventConnectionPlace {
+  key: ID
+  connection: EventConnection
+}
+
+type EventConnectionEvent {
+  key: ID
+  connection: EventConnection
+}
+
+type EventConnectionBadge {
+  key: ID
+  connection: EventConnection
+}
+
+type EventConnectionUid {
+  key: String
+  connection: EventConnection
+}
+
+type EventConnectionService {
+  key: ID
+  connection: EventConnection
+}
+
+input EventInput {
+  type: String!
+  message: String
+  group: ID
+  journey: ID
+  place: ID
+  event: ID
+  badge: ID
+  uid: String
+  service: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input editEventInput {
+  type: String
+  message: String
+  group: ID
+  journey: ID
+  place: ID
+  event: ID
+  badge: ID
+  uid: String
+  service: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input createEventInput {
+  data: EventInput
+}
+
+type createEventPayload {
+  event: Event
+}
+
+input updateEventInput {
+  where: InputID
+  data: editEventInput
+}
+
+type updateEventPayload {
+  event: Event
+}
+
+input deleteEventInput {
+  where: InputID
+}
+
+type deleteEventPayload {
+  event: Event
+}
+
+type Group {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  welcome: String!
+  logo: UploadFile
+  primaryColor: String!
+  secondaryColor: String!
+  textColor: String!
+  token: String
+  verified: Boolean
+  cover: UploadFile
+  slug: String
+  showPublicContent: Boolean
+  homepageUrl: String
+  homepageTitle: String
+  description: String
+  customer: Customer
+  showMascot: Boolean
+  numberOfJourneys: Int
+  numberOfPlaces: Int
+  vessels: [ComponentVesselVessel]
+  desktopCover: UploadFile
+  locale: String
+  members(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+  admins(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+  places(sort: String, limit: Int, start: Int, where: JSON): [Place]
+  dataSources(sort: String, limit: Int, start: Int, where: JSON): [DataSource]
+  ownJourneys(sort: String, limit: Int, start: Int, where: JSON): [Journey]
+  sharedJourneys(sort: String, limit: Int, start: Int, where: JSON): [Journey]
+  ownPlaces(sort: String, limit: Int, start: Int, where: JSON): [Place]
+  localizations(sort: String, limit: Int, start: Int, where: JSON): [Group]
+}
+
+type GroupConnection {
+  values: [Group]
+  groupBy: GroupGroupBy
+  aggregate: GroupAggregator
+}
+
+type GroupAggregator {
+  count: Int
+  totalCount: Int
+  sum: GroupAggregatorSum
+  avg: GroupAggregatorAvg
+  min: GroupAggregatorMin
+  max: GroupAggregatorMax
+}
+
+type GroupAggregatorSum {
+  numberOfJourneys: Float
+  numberOfPlaces: Float
+}
+
+type GroupAggregatorAvg {
+  numberOfJourneys: Float
+  numberOfPlaces: Float
+}
+
+type GroupAggregatorMin {
+  numberOfJourneys: Float
+  numberOfPlaces: Float
+}
+
+type GroupAggregatorMax {
+  numberOfJourneys: Float
+  numberOfPlaces: Float
+}
+
+type GroupGroupBy {
+  id: [GroupConnectionId]
+  _id: [GroupConnection_id]
+  createdAt: [GroupConnectionCreatedAt]
+  updatedAt: [GroupConnectionUpdatedAt]
+  name: [GroupConnectionName]
+  welcome: [GroupConnectionWelcome]
+  logo: [GroupConnectionLogo]
+  primaryColor: [GroupConnectionPrimaryColor]
+  secondaryColor: [GroupConnectionSecondaryColor]
+  textColor: [GroupConnectionTextColor]
+  token: [GroupConnectionToken]
+  verified: [GroupConnectionVerified]
+  cover: [GroupConnectionCover]
+  slug: [GroupConnectionSlug]
+  showPublicContent: [GroupConnectionShowPublicContent]
+  homepageUrl: [GroupConnectionHomepageUrl]
+  homepageTitle: [GroupConnectionHomepageTitle]
+  description: [GroupConnectionDescription]
+  customer: [GroupConnectionCustomer]
+  showMascot: [GroupConnectionShowMascot]
+  numberOfJourneys: [GroupConnectionNumberOfJourneys]
+  numberOfPlaces: [GroupConnectionNumberOfPlaces]
+  desktopCover: [GroupConnectionDesktopCover]
+  locale: [GroupConnectionLocale]
+}
+
+type GroupConnectionId {
+  key: ID
+  connection: GroupConnection
+}
+
+type GroupConnection_id {
+  key: ID
+  connection: GroupConnection
+}
+
+type GroupConnectionCreatedAt {
+  key: DateTime
+  connection: GroupConnection
+}
+
+type GroupConnectionUpdatedAt {
+  key: DateTime
+  connection: GroupConnection
+}
+
+type GroupConnectionName {
+  key: String
+  connection: GroupConnection
+}
+
+type GroupConnectionWelcome {
+  key: String
+  connection: GroupConnection
+}
+
+type GroupConnectionLogo {
+  key: ID
+  connection: GroupConnection
+}
+
+type GroupConnectionPrimaryColor {
+  key: String
+  connection: GroupConnection
+}
+
+type GroupConnectionSecondaryColor {
+  key: String
+  connection: GroupConnection
+}
+
+type GroupConnectionTextColor {
+  key: String
+  connection: GroupConnection
+}
+
+type GroupConnectionToken {
+  key: String
+  connection: GroupConnection
+}
+
+type GroupConnectionVerified {
+  key: Boolean
+  connection: GroupConnection
+}
+
+type GroupConnectionCover {
+  key: ID
+  connection: GroupConnection
+}
+
+type GroupConnectionSlug {
+  key: String
+  connection: GroupConnection
+}
+
+type GroupConnectionShowPublicContent {
+  key: Boolean
+  connection: GroupConnection
+}
+
+type GroupConnectionHomepageUrl {
+  key: String
+  connection: GroupConnection
+}
+
+type GroupConnectionHomepageTitle {
+  key: String
+  connection: GroupConnection
+}
+
+type GroupConnectionDescription {
+  key: String
+  connection: GroupConnection
+}
+
+type GroupConnectionCustomer {
+  key: ID
+  connection: GroupConnection
+}
+
+type GroupConnectionShowMascot {
+  key: Boolean
+  connection: GroupConnection
+}
+
+type GroupConnectionNumberOfJourneys {
+  key: Int
+  connection: GroupConnection
+}
+
+type GroupConnectionNumberOfPlaces {
+  key: Int
+  connection: GroupConnection
+}
+
+type GroupConnectionDesktopCover {
+  key: ID
+  connection: GroupConnection
+}
+
+type GroupConnectionLocale {
+  key: String
+  connection: GroupConnection
+}
+
+input GroupInput {
+  name: String!
+  welcome: String!
+  logo: ID
+  primaryColor: String
+  secondaryColor: String
+  textColor: String
+  token: String
+  verified: Boolean
+  cover: ID
+  slug: String
+  members: [ID]
+  admins: [ID]
+  showPublicContent: Boolean
+  places: [ID]
+  dataSources: [ID]
+  homepageUrl: String
+  homepageTitle: String
+  ownJourneys: [ID]
+  sharedJourneys: [ID]
+  description: String
+  customer: ID
+  showMascot: Boolean
+  numberOfJourneys: Int
+  numberOfPlaces: Int
+  ownPlaces: [ID]
+  vessels: [ComponentVesselVesselInput]
+  desktopCover: ID
+  localizations: [ID]
+  locale: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editGroupInput {
+  name: String
+  welcome: String
+  logo: ID
+  primaryColor: String
+  secondaryColor: String
+  textColor: String
+  token: String
+  verified: Boolean
+  cover: ID
+  slug: String
+  members: [ID]
+  admins: [ID]
+  showPublicContent: Boolean
+  places: [ID]
+  dataSources: [ID]
+  homepageUrl: String
+  homepageTitle: String
+  ownJourneys: [ID]
+  sharedJourneys: [ID]
+  description: String
+  customer: ID
+  showMascot: Boolean
+  numberOfJourneys: Int
+  numberOfPlaces: Int
+  ownPlaces: [ID]
+  vessels: [editComponentVesselVesselInput]
+  desktopCover: ID
+  localizations: [ID]
+  locale: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createGroupInput {
+  data: GroupInput
+}
+
+type createGroupPayload {
+  group: Group
+}
+
+input updateGroupInput {
+  where: InputID
+  data: editGroupInput
+}
+
+type updateGroupPayload {
+  group: Group
+}
+
+input deleteGroupInput {
+  where: InputID
+}
+
+type deleteGroupPayload {
+  group: Group
+}
+
+enum ENUM_JOURNEY_DIFFICULTY {
+  easy
+  normal
+  hard
+}
+
+enum ENUM_JOURNEY_GROUPSIZE {
+  individual
+  small_group
+  group
+}
+
+enum ENUM_JOURNEY_TARGETGROUP {
+  individual
+  group
+  b2b
+  b2c
+}
+
+enum ENUM_JOURNEY_CATEGORY {
+  photographic_exhibition
+  vr_installation
+}
+
+enum ENUM_JOURNEY_ACCESSIBILITY {
+  accessibilityNormal
+  accessibilityChallenging
+}
+
+type Journey {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  slug: String
+  cover: UploadFile
+  excerpt: String
+  description: String
+  distance: Int
+  duration: Int
+  difficulty: ENUM_JOURNEY_DIFFICULTY
+  groupSize: ENUM_JOURNEY_GROUPSIZE
+  targetGroup: ENUM_JOURNEY_TARGETGROUP
+  category: ENUM_JOURNEY_CATEGORY
+  geometry: JSON
+  geoJSON: JSON
+  badge: Badge
+  accessibility: ENUM_JOURNEY_ACCESSIBILITY
+  elevation: Int
+  gpx: UploadFile
+  audioGuide: UploadFile
+  audioLoop: Boolean
+  links: [ComponentLinkLink]
+  publishDate: DateTime
+  expirationDate: DateTime
+  public: Boolean
+  featured: Boolean
+  ownerGroup: Group
+  showNextPlace: Boolean
+  calculateDistance: Boolean
+  route: JSON
+  locale: String
+  published_at: DateTime
+  places(sort: String, limit: Int, start: Int, where: JSON): [Place]
+  tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
+  commonGroups(sort: String, limit: Int, start: Int, where: JSON): [Group]
+  localizations(sort: String, limit: Int, start: Int, where: JSON): [Journey]
+}
+
+type JourneyConnection {
+  values: [Journey]
+  groupBy: JourneyGroupBy
+  aggregate: JourneyAggregator
+}
+
+type JourneyAggregator {
+  count: Int
+  totalCount: Int
+  sum: JourneyAggregatorSum
+  avg: JourneyAggregatorAvg
+  min: JourneyAggregatorMin
+  max: JourneyAggregatorMax
+}
+
+type JourneyAggregatorSum {
+  distance: Float
+  duration: Float
+  elevation: Float
+}
+
+type JourneyAggregatorAvg {
+  distance: Float
+  duration: Float
+  elevation: Float
+}
+
+type JourneyAggregatorMin {
+  distance: Float
+  duration: Float
+  elevation: Float
+}
+
+type JourneyAggregatorMax {
+  distance: Float
+  duration: Float
+  elevation: Float
+}
+
+type JourneyGroupBy {
+  id: [JourneyConnectionId]
+  _id: [JourneyConnection_id]
+  createdAt: [JourneyConnectionCreatedAt]
+  updatedAt: [JourneyConnectionUpdatedAt]
+  name: [JourneyConnectionName]
+  slug: [JourneyConnectionSlug]
+  cover: [JourneyConnectionCover]
+  excerpt: [JourneyConnectionExcerpt]
+  description: [JourneyConnectionDescription]
+  distance: [JourneyConnectionDistance]
+  duration: [JourneyConnectionDuration]
+  difficulty: [JourneyConnectionDifficulty]
+  groupSize: [JourneyConnectionGroupSize]
+  targetGroup: [JourneyConnectionTargetGroup]
+  category: [JourneyConnectionCategory]
+  geometry: [JourneyConnectionGeometry]
+  geoJSON: [JourneyConnectionGeoJSON]
+  badge: [JourneyConnectionBadge]
+  accessibility: [JourneyConnectionAccessibility]
+  elevation: [JourneyConnectionElevation]
+  gpx: [JourneyConnectionGpx]
+  audioGuide: [JourneyConnectionAudioGuide]
+  audioLoop: [JourneyConnectionAudioLoop]
+  publishDate: [JourneyConnectionPublishDate]
+  expirationDate: [JourneyConnectionExpirationDate]
+  public: [JourneyConnectionPublic]
+  featured: [JourneyConnectionFeatured]
+  ownerGroup: [JourneyConnectionOwnerGroup]
+  showNextPlace: [JourneyConnectionShowNextPlace]
+  calculateDistance: [JourneyConnectionCalculateDistance]
+  route: [JourneyConnectionRoute]
+  locale: [JourneyConnectionLocale]
+  published_at: [JourneyConnectionPublished_at]
+}
+
+type JourneyConnectionId {
+  key: ID
+  connection: JourneyConnection
+}
+
+type JourneyConnection_id {
+  key: ID
+  connection: JourneyConnection
+}
+
+type JourneyConnectionCreatedAt {
+  key: DateTime
+  connection: JourneyConnection
+}
+
+type JourneyConnectionUpdatedAt {
+  key: DateTime
+  connection: JourneyConnection
+}
+
+type JourneyConnectionName {
+  key: String
+  connection: JourneyConnection
+}
+
+type JourneyConnectionSlug {
+  key: String
+  connection: JourneyConnection
+}
+
+type JourneyConnectionCover {
+  key: ID
+  connection: JourneyConnection
+}
+
+type JourneyConnectionExcerpt {
+  key: String
+  connection: JourneyConnection
+}
+
+type JourneyConnectionDescription {
+  key: String
+  connection: JourneyConnection
+}
+
+type JourneyConnectionDistance {
+  key: Int
+  connection: JourneyConnection
+}
+
+type JourneyConnectionDuration {
+  key: Int
+  connection: JourneyConnection
+}
+
+type JourneyConnectionDifficulty {
+  key: String
+  connection: JourneyConnection
+}
+
+type JourneyConnectionGroupSize {
+  key: String
+  connection: JourneyConnection
+}
+
+type JourneyConnectionTargetGroup {
+  key: String
+  connection: JourneyConnection
+}
+
+type JourneyConnectionCategory {
+  key: String
+  connection: JourneyConnection
+}
+
+type JourneyConnectionGeometry {
+  key: JSON
+  connection: JourneyConnection
+}
+
+type JourneyConnectionGeoJSON {
+  key: JSON
+  connection: JourneyConnection
+}
+
+type JourneyConnectionBadge {
+  key: ID
+  connection: JourneyConnection
+}
+
+type JourneyConnectionAccessibility {
+  key: String
+  connection: JourneyConnection
+}
+
+type JourneyConnectionElevation {
+  key: Int
+  connection: JourneyConnection
+}
+
+type JourneyConnectionGpx {
+  key: ID
+  connection: JourneyConnection
+}
+
+type JourneyConnectionAudioGuide {
+  key: ID
+  connection: JourneyConnection
+}
+
+type JourneyConnectionAudioLoop {
+  key: Boolean
+  connection: JourneyConnection
+}
+
+type JourneyConnectionPublishDate {
+  key: DateTime
+  connection: JourneyConnection
+}
+
+type JourneyConnectionExpirationDate {
+  key: DateTime
+  connection: JourneyConnection
+}
+
+type JourneyConnectionPublic {
+  key: Boolean
+  connection: JourneyConnection
+}
+
+type JourneyConnectionFeatured {
+  key: Boolean
+  connection: JourneyConnection
+}
+
+type JourneyConnectionOwnerGroup {
+  key: ID
+  connection: JourneyConnection
+}
+
+type JourneyConnectionShowNextPlace {
+  key: Boolean
+  connection: JourneyConnection
+}
+
+type JourneyConnectionCalculateDistance {
+  key: Boolean
+  connection: JourneyConnection
+}
+
+type JourneyConnectionRoute {
+  key: JSON
+  connection: JourneyConnection
+}
+
+type JourneyConnectionLocale {
+  key: String
+  connection: JourneyConnection
+}
+
+type JourneyConnectionPublished_at {
+  key: DateTime
+  connection: JourneyConnection
+}
+
+input JourneyInput {
+  name: String!
+  slug: String
+  cover: ID
+  excerpt: String
+  description: String
+  places: [ID]
+  distance: Int
+  duration: Int
+  difficulty: ENUM_JOURNEY_DIFFICULTY
+  groupSize: ENUM_JOURNEY_GROUPSIZE
+  targetGroup: ENUM_JOURNEY_TARGETGROUP
+  category: ENUM_JOURNEY_CATEGORY
+  tags: [ID]
+  latitude: Float!
+  longitude: Float!
+  geometry: JSON
+  geoJSON: JSON
+  badge: ID
+  accessibility: ENUM_JOURNEY_ACCESSIBILITY
+  elevation: Int
+  gpx: ID
+  audioGuide: ID
+  audioLoop: Boolean
+  links: [ComponentLinkLinkInput]
+  publishDate: DateTime
+  expirationDate: DateTime
+  public: Boolean
+  featured: Boolean
+  ownerGroup: ID
+  commonGroups: [ID]
+  showNextPlace: Boolean
+  calculateDistance: Boolean
+  route: JSON
+  localizations: [ID]
+  locale: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editJourneyInput {
+  name: String
+  slug: String
+  cover: ID
+  excerpt: String
+  description: String
+  places: [ID]
+  distance: Int
+  duration: Int
+  difficulty: ENUM_JOURNEY_DIFFICULTY
+  groupSize: ENUM_JOURNEY_GROUPSIZE
+  targetGroup: ENUM_JOURNEY_TARGETGROUP
+  category: ENUM_JOURNEY_CATEGORY
+  tags: [ID]
+  latitude: Float
+  longitude: Float
+  geometry: JSON
+  geoJSON: JSON
+  badge: ID
+  accessibility: ENUM_JOURNEY_ACCESSIBILITY
+  elevation: Int
+  gpx: ID
+  audioGuide: ID
+  audioLoop: Boolean
+  links: [editComponentLinkLinkInput]
+  publishDate: DateTime
+  expirationDate: DateTime
+  public: Boolean
+  featured: Boolean
+  ownerGroup: ID
+  commonGroups: [ID]
+  showNextPlace: Boolean
+  calculateDistance: Boolean
+  route: JSON
+  localizations: [ID]
+  locale: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createJourneyInput {
+  data: JourneyInput
+}
+
+type createJourneyPayload {
+  journey: Journey
+}
+
+input updateJourneyInput {
+  where: InputID
+  data: editJourneyInput
+}
+
+type updateJourneyPayload {
+  journey: Journey
+}
+
+input deleteJourneyInput {
+  where: InputID
+}
+
+type deleteJourneyPayload {
+  journey: Journey
+}
+
+type Message {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  subject: String!
+  message: String!
+  os: String
+  browser: String
+  url: String
+}
+
+type MessageConnection {
+  values: [Message]
+  groupBy: MessageGroupBy
+  aggregate: MessageAggregator
+}
+
+type MessageAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type MessageGroupBy {
+  id: [MessageConnectionId]
+  _id: [MessageConnection_id]
+  createdAt: [MessageConnectionCreatedAt]
+  updatedAt: [MessageConnectionUpdatedAt]
+  subject: [MessageConnectionSubject]
+  message: [MessageConnectionMessage]
+  os: [MessageConnectionOs]
+  browser: [MessageConnectionBrowser]
+  url: [MessageConnectionUrl]
+}
+
+type MessageConnectionId {
+  key: ID
+  connection: MessageConnection
+}
+
+type MessageConnection_id {
+  key: ID
+  connection: MessageConnection
+}
+
+type MessageConnectionCreatedAt {
+  key: DateTime
+  connection: MessageConnection
+}
+
+type MessageConnectionUpdatedAt {
+  key: DateTime
+  connection: MessageConnection
+}
+
+type MessageConnectionSubject {
+  key: String
+  connection: MessageConnection
+}
+
+type MessageConnectionMessage {
+  key: String
+  connection: MessageConnection
+}
+
+type MessageConnectionOs {
+  key: String
+  connection: MessageConnection
+}
+
+type MessageConnectionBrowser {
+  key: String
+  connection: MessageConnection
+}
+
+type MessageConnectionUrl {
+  key: String
+  connection: MessageConnection
+}
+
+input MessageInput {
+  subject: String!
+  message: String!
+  os: String
+  browser: String
+  url: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editMessageInput {
+  subject: String
+  message: String
+  os: String
+  browser: String
+  url: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createMessageInput {
+  data: MessageInput
+}
+
+type createMessagePayload {
+  message: Message
+}
+
+input updateMessageInput {
+  where: InputID
+  data: editMessageInput
+}
+
+type updateMessagePayload {
+  message: Message
+}
+
+input deleteMessageInput {
+  where: InputID
+}
+
+type deleteMessagePayload {
+  message: Message
+}
+
+enum ENUM_PLACE_ICON {
+  abseiling
+  accounting
+  airport
+  amusement_park
+  aquarium
+  archery
+  art_gallery
+  assistive_listening_system
+  atm
+  audio_description
+  bakery
+  bank
+  bar
+  baseball
+  beauty_salon
+  bicycle_store
+  bicycling
+  boat_ramp
+  boat_tour
+  boating
+  book_store
+  bowling_alley
+  braille
+  bus_station
+  cafe
+  campground
+  canoe
+  car_dealer
+  car_rental
+  car_repair
+  car_wash
+  casino
+  cemetery
+  chairlift
+  church
+  city_hall
+  climbing
+  closed_captioning
+  clothing_store
+  compass
+  convenience_store
+  courthouse
+  cross_country_skiing
+  crosshairs
+  dentist
+  department_store
+  diving
+  doctor
+  electrician
+  electronics_store
+  embassy
+  female
+  finance
+  fire_station
+  fish_cleaning
+  fishing_pier
+  fishing
+  florist
+  food
+  funeral_home
+  furniture_store
+  gas_station
+  general_contractor
+  golf
+  grocery_or_supermarket
+  gym
+  hair_care
+  hang_gliding
+  hardware_store
+  health
+  hindu_temple
+  horse_riding
+  hospital
+  ice_fishing
+  ice_skating
+  inline_skating
+  insurance_agency
+  jet_skiing
+  jewelry_store
+  kayaking
+  laundry
+  lawyer
+  library
+  liquor_store
+  local_government
+  locksmith
+  lodging
+  low_vision_access
+  male
+  marina
+  mosque
+  motobike_trail
+  movie_rental
+  movie_theater
+  moving_company
+  museum
+  natural_feature
+  night_club
+  open_captioning
+  painter
+  park
+  parking
+  pet_store
+  pharmacy
+  physiotherapist
+  place_of_worship
+  playground
+  plumber
+  point_of_interest
+  police
+  political
+  post_box
+  post_office
+  postal_code_prefix
+  postal_code
+  rafting
+  real_estate_agency
+  restaurant
+  route_pin
+  route
+  rv_park
+  sailing
+  school
+  scuba_diving
+  sheild
+  shopping_mall
+  sign_language
+  skateboarding
+  ski_jumping
+  skiing
+  sledding
+  snow_shoeing
+  snow
+  snowboarding
+  snowmobile
+  spa
+  square
+  stadium
+  storage
+  store
+  subway_station
+  surfing
+  swimming
+  synagogue
+  taxi_stand
+  tennis
+  toilet
+  trail_walking
+  train_station
+  transit_station
+  travel_agency
+  unisex
+  university
+  veterinary_care
+  viewing
+  volume_control_telephone
+  walking
+  waterskiing
+  whale_watching
+  wheelchair
+  wind_surfing
+  zoo
+}
+
+type Place {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  slug: String
+  description: String
+  cover: UploadFile
+  publicContent: Boolean
+  content: String
+  links: [ComponentLinkLink]
+  geoJSON: JSON
+  audioGuide: UploadFile
+  icon: ENUM_PLACE_ICON
+  publishDate: DateTime
+  expirationDate: DateTime
+  public: Boolean
+  order: Int
+  ownerGroup: Group
+  token: String
+  ar: [ComponentArAr]
+  locale: String
+  published_at: DateTime
+  tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
+  journeys(sort: String, limit: Int, start: Int, where: JSON): [Journey]
+  groups(sort: String, limit: Int, start: Int, where: JSON): [Group]
+  gallery(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  localizations(sort: String, limit: Int, start: Int, where: JSON): [Place]
+}
+
+type PlaceConnection {
+  values: [Place]
+  groupBy: PlaceGroupBy
+  aggregate: PlaceAggregator
+}
+
+type PlaceAggregator {
+  count: Int
+  totalCount: Int
+  sum: PlaceAggregatorSum
+  avg: PlaceAggregatorAvg
+  min: PlaceAggregatorMin
+  max: PlaceAggregatorMax
+}
+
+type PlaceAggregatorSum {
+  order: Float
+}
+
+type PlaceAggregatorAvg {
+  order: Float
+}
+
+type PlaceAggregatorMin {
+  order: Float
+}
+
+type PlaceAggregatorMax {
+  order: Float
+}
+
+type PlaceGroupBy {
+  id: [PlaceConnectionId]
+  _id: [PlaceConnection_id]
+  createdAt: [PlaceConnectionCreatedAt]
+  updatedAt: [PlaceConnectionUpdatedAt]
+  name: [PlaceConnectionName]
+  slug: [PlaceConnectionSlug]
+  description: [PlaceConnectionDescription]
+  cover: [PlaceConnectionCover]
+  publicContent: [PlaceConnectionPublicContent]
+  content: [PlaceConnectionContent]
+  geoJSON: [PlaceConnectionGeoJSON]
+  audioGuide: [PlaceConnectionAudioGuide]
+  icon: [PlaceConnectionIcon]
+  publishDate: [PlaceConnectionPublishDate]
+  expirationDate: [PlaceConnectionExpirationDate]
+  public: [PlaceConnectionPublic]
+  order: [PlaceConnectionOrder]
+  ownerGroup: [PlaceConnectionOwnerGroup]
+  token: [PlaceConnectionToken]
+  locale: [PlaceConnectionLocale]
+  published_at: [PlaceConnectionPublished_at]
+}
+
+type PlaceConnectionId {
+  key: ID
+  connection: PlaceConnection
+}
+
+type PlaceConnection_id {
+  key: ID
+  connection: PlaceConnection
+}
+
+type PlaceConnectionCreatedAt {
+  key: DateTime
+  connection: PlaceConnection
+}
+
+type PlaceConnectionUpdatedAt {
+  key: DateTime
+  connection: PlaceConnection
+}
+
+type PlaceConnectionName {
+  key: String
+  connection: PlaceConnection
+}
+
+type PlaceConnectionSlug {
+  key: String
+  connection: PlaceConnection
+}
+
+type PlaceConnectionDescription {
+  key: String
+  connection: PlaceConnection
+}
+
+type PlaceConnectionCover {
+  key: ID
+  connection: PlaceConnection
+}
+
+type PlaceConnectionPublicContent {
+  key: Boolean
+  connection: PlaceConnection
+}
+
+type PlaceConnectionContent {
+  key: String
+  connection: PlaceConnection
+}
+
+type PlaceConnectionGeoJSON {
+  key: JSON
+  connection: PlaceConnection
+}
+
+type PlaceConnectionAudioGuide {
+  key: ID
+  connection: PlaceConnection
+}
+
+type PlaceConnectionIcon {
+  key: String
+  connection: PlaceConnection
+}
+
+type PlaceConnectionPublishDate {
+  key: DateTime
+  connection: PlaceConnection
+}
+
+type PlaceConnectionExpirationDate {
+  key: DateTime
+  connection: PlaceConnection
+}
+
+type PlaceConnectionPublic {
+  key: Boolean
+  connection: PlaceConnection
+}
+
+type PlaceConnectionOrder {
+  key: Int
+  connection: PlaceConnection
+}
+
+type PlaceConnectionOwnerGroup {
+  key: ID
+  connection: PlaceConnection
+}
+
+type PlaceConnectionToken {
+  key: String
+  connection: PlaceConnection
+}
+
+type PlaceConnectionLocale {
+  key: String
+  connection: PlaceConnection
+}
+
+type PlaceConnectionPublished_at {
+  key: DateTime
+  connection: PlaceConnection
+}
+
+input PlaceInput {
+  name: String!
+  slug: String
+  description: String
+  latitude: Float!
+  longitude: Float!
+  cover: ID
+  tags: [ID]
+  radius: Int
+  journeys: [ID]
+  publicContent: Boolean
+  content: String
+  links: [ComponentLinkLinkInput]
+  geoJSON: JSON
+  groups: [ID]
+  audioGuide: ID
+  icon: ENUM_PLACE_ICON
+  publishDate: DateTime
+  expirationDate: DateTime
+  public: Boolean
+  geometry: JSON
+  order: Int
+  ownerGroup: ID
+  gallery: [ID]
+  token: String
+  ar: [ComponentArArInput]
+  localizations: [ID]
+  locale: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editPlaceInput {
+  name: String
+  slug: String
+  description: String
+  latitude: Float
+  longitude: Float
+  cover: ID
+  tags: [ID]
+  radius: Int
+  journeys: [ID]
+  publicContent: Boolean
+  content: String
+  links: [editComponentLinkLinkInput]
+  geoJSON: JSON
+  groups: [ID]
+  audioGuide: ID
+  icon: ENUM_PLACE_ICON
+  publishDate: DateTime
+  expirationDate: DateTime
+  public: Boolean
+  geometry: JSON
+  order: Int
+  ownerGroup: ID
+  gallery: [ID]
+  token: String
+  ar: [editComponentArArInput]
+  localizations: [ID]
+  locale: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createPlaceInput {
+  data: PlaceInput
+}
+
+type createPlacePayload {
+  place: Place
+}
+
+input updatePlaceInput {
+  where: InputID
+  data: editPlaceInput
+}
+
+type updatePlacePayload {
+  place: Place
+}
+
+input deletePlaceInput {
+  where: InputID
+}
+
+type deletePlacePayload {
+  place: Place
+}
+
+type PrivacyPolicy {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  content: String
+  title: String!
+  locale: String
+  localizations(sort: String, limit: Int, start: Int, where: JSON): [PrivacyPolicy]
+}
+
+input PrivacyPolicyInput {
+  content: String
+  title: String
+  localizations: [ID]
+  locale: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editPrivacyPolicyInput {
+  content: String
+  title: String
+  localizations: [ID]
+  locale: String
+  created_by: ID
+  updated_by: ID
+}
+
+input updatePrivacyPolicyInput {
+  data: editPrivacyPolicyInput
+}
+
+type updatePrivacyPolicyPayload {
+  privacyPolicy: PrivacyPolicy
+}
+
+type deletePrivacyPolicyPayload {
+  privacyPolicy: PrivacyPolicy
+}
+
+enum ENUM_SERVICE_ICON {
+  abseiling
+  accounting
+  airport
+  amusement_park
+  aquarium
+  archery
+  art_gallery
+  assistive_listening_system
+  atm
+  audio_description
+  bakery
+  bank
+  bar
+  baseball
+  beauty_salon
+  bicycle_store
+  bicycling
+  boat_ramp
+  boat_tour
+  boating
+  book_store
+  bowling_alley
+  braille
+  bus_station
+  cafe
+  campground
+  canoe
+  car_dealer
+  car_rental
+  car_repair
+  car_wash
+  casino
+  cemetery
+  chairlift
+  church
+  city_hall
+  climbing
+  closed_captioning
+  clothing_store
+  compass
+  convenience_store
+  courthouse
+  cross_country_skiing
+  crosshairs
+  dentist
+  department_store
+  diving
+  doctor
+  electrician
+  electronics_store
+  embassy
+  female
+  finance
+  fire_station
+  fish_cleaning
+  fishing_pier
+  fishing
+  florist
+  food
+  funeral_home
+  furniture_store
+  gas_station
+  general_contractor
+  golf
+  grocery_or_supermarket
+  gym
+  hair_care
+  hang_gliding
+  hardware_store
+  health
+  hindu_temple
+  horse_riding
+  hospital
+  ice_fishing
+  ice_skating
+  inline_skating
+  insurance_agency
+  jet_skiing
+  jewelry_store
+  kayaking
+  laundry
+  lawyer
+  library
+  liquor_store
+  local_government
+  locksmith
+  lodging
+  low_vision_access
+  male
+  marina
+  mosque
+  motobike_trail
+  movie_rental
+  movie_theater
+  moving_company
+  museum
+  natural_feature
+  night_club
+  open_captioning
+  painter
+  park
+  parking
+  pet_store
+  pharmacy
+  physiotherapist
+  place_of_worship
+  playground
+  plumber
+  point_of_interest
+  police
+  political
+  post_box
+  post_office
+  postal_code_prefix
+  postal_code
+  rafting
+  real_estate_agency
+  restaurant
+  route_pin
+  route
+  rv_park
+  sailing
+  school
+  scuba_diving
+  sheild
+  shopping_mall
+  sign_language
+  skateboarding
+  ski_jumping
+  skiing
+  sledding
+  snow_shoeing
+  snow
+  snowboarding
+  snowmobile
+  spa
+  square
+  stadium
+  storage
+  store
+  subway_station
+  surfing
+  swimming
+  synagogue
+  taxi_stand
+  tennis
+  toilet
+  trail_walking
+  train_station
+  transit_station
+  travel_agency
+  unisex
+  university
+  veterinary_care
+  viewing
+  volume_control_telephone
+  walking
+  waterskiing
+  whale_watching
+  wheelchair
+  wind_surfing
+  zoo
+}
+
+type Service {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  description: String
+  homepage: String
+  latitude: Float
+  longitude: Float
+  geoJSON: JSON
+  cover: UploadFile
+  tag: Tag
+  icon: ENUM_SERVICE_ICON
+  locale: String
+  localizations(sort: String, limit: Int, start: Int, where: JSON): [Service]
+}
+
+type ServiceConnection {
+  values: [Service]
+  groupBy: ServiceGroupBy
+  aggregate: ServiceAggregator
+}
+
+type ServiceAggregator {
+  count: Int
+  totalCount: Int
+  sum: ServiceAggregatorSum
+  avg: ServiceAggregatorAvg
+  min: ServiceAggregatorMin
+  max: ServiceAggregatorMax
+}
+
+type ServiceAggregatorSum {
+  latitude: Float
+  longitude: Float
+}
+
+type ServiceAggregatorAvg {
+  latitude: Float
+  longitude: Float
+}
+
+type ServiceAggregatorMin {
+  latitude: Float
+  longitude: Float
+}
+
+type ServiceAggregatorMax {
+  latitude: Float
+  longitude: Float
+}
+
+type ServiceGroupBy {
+  id: [ServiceConnectionId]
+  _id: [ServiceConnection_id]
+  createdAt: [ServiceConnectionCreatedAt]
+  updatedAt: [ServiceConnectionUpdatedAt]
+  name: [ServiceConnectionName]
+  description: [ServiceConnectionDescription]
+  homepage: [ServiceConnectionHomepage]
+  latitude: [ServiceConnectionLatitude]
+  longitude: [ServiceConnectionLongitude]
+  geoJSON: [ServiceConnectionGeoJSON]
+  cover: [ServiceConnectionCover]
+  tag: [ServiceConnectionTag]
+  icon: [ServiceConnectionIcon]
+  locale: [ServiceConnectionLocale]
+}
+
+type ServiceConnectionId {
+  key: ID
+  connection: ServiceConnection
+}
+
+type ServiceConnection_id {
+  key: ID
+  connection: ServiceConnection
+}
+
+type ServiceConnectionCreatedAt {
+  key: DateTime
+  connection: ServiceConnection
+}
+
+type ServiceConnectionUpdatedAt {
+  key: DateTime
+  connection: ServiceConnection
+}
+
+type ServiceConnectionName {
+  key: String
+  connection: ServiceConnection
+}
+
+type ServiceConnectionDescription {
+  key: String
+  connection: ServiceConnection
+}
+
+type ServiceConnectionHomepage {
+  key: String
+  connection: ServiceConnection
+}
+
+type ServiceConnectionLatitude {
+  key: Float
+  connection: ServiceConnection
+}
+
+type ServiceConnectionLongitude {
+  key: Float
+  connection: ServiceConnection
+}
+
+type ServiceConnectionGeoJSON {
+  key: JSON
+  connection: ServiceConnection
+}
+
+type ServiceConnectionCover {
+  key: ID
+  connection: ServiceConnection
+}
+
+type ServiceConnectionTag {
+  key: ID
+  connection: ServiceConnection
+}
+
+type ServiceConnectionIcon {
+  key: String
+  connection: ServiceConnection
+}
+
+type ServiceConnectionLocale {
+  key: String
+  connection: ServiceConnection
+}
+
+input ServiceInput {
+  name: String
+  description: String
+  homepage: String
+  latitude: Float
+  longitude: Float
+  geoJSON: JSON
+  cover: ID
+  tag: ID
+  icon: ENUM_SERVICE_ICON
+  geometry: JSON
+  localizations: [ID]
+  locale: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editServiceInput {
+  name: String
+  description: String
+  homepage: String
+  latitude: Float
+  longitude: Float
+  geoJSON: JSON
+  cover: ID
+  tag: ID
+  icon: ENUM_SERVICE_ICON
+  geometry: JSON
+  localizations: [ID]
+  locale: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createServiceInput {
+  data: ServiceInput
+}
+
+type createServicePayload {
+  service: Service
+}
+
+input updateServiceInput {
+  where: InputID
+  data: editServiceInput
+}
+
+type updateServicePayload {
+  service: Service
+}
+
+input deleteServiceInput {
+  where: InputID
+}
+
+type deleteServicePayload {
+  service: Service
+}
+
+type Tag {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  slug: String
+  locale: String
+  localizations(sort: String, limit: Int, start: Int, where: JSON): [Tag]
+}
+
+type TagConnection {
+  values: [Tag]
+  groupBy: TagGroupBy
+  aggregate: TagAggregator
+}
+
+type TagAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type TagGroupBy {
+  id: [TagConnectionId]
+  _id: [TagConnection_id]
+  createdAt: [TagConnectionCreatedAt]
+  updatedAt: [TagConnectionUpdatedAt]
+  name: [TagConnectionName]
+  slug: [TagConnectionSlug]
+  locale: [TagConnectionLocale]
+}
+
+type TagConnectionId {
+  key: ID
+  connection: TagConnection
+}
+
+type TagConnection_id {
+  key: ID
+  connection: TagConnection
+}
+
+type TagConnectionCreatedAt {
+  key: DateTime
+  connection: TagConnection
+}
+
+type TagConnectionUpdatedAt {
+  key: DateTime
+  connection: TagConnection
+}
+
+type TagConnectionName {
+  key: String
+  connection: TagConnection
+}
+
+type TagConnectionSlug {
+  key: String
+  connection: TagConnection
+}
+
+type TagConnectionLocale {
+  key: String
+  connection: TagConnection
+}
+
+input TagInput {
+  name: String!
+  slug: String
+  localizations: [ID]
+  locale: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editTagInput {
+  name: String
+  slug: String
+  localizations: [ID]
+  locale: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createTagInput {
+  data: TagInput
+}
+
+type createTagPayload {
+  tag: Tag
+}
+
+input updateTagInput {
+  where: InputID
+  data: editTagInput
+}
+
+type updateTagPayload {
+  tag: Tag
+}
+
+input deleteTagInput {
+  where: InputID
+}
+
+type deleteTagPayload {
+  tag: Tag
+}
+
+type I18NLocale {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  code: String
+}
+
+input LocaleInput {
+  name: String
+  code: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editLocaleInput {
+  name: String
+  code: String
+  created_by: ID
+  updated_by: ID
+}
+
+type UploadFile {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UploadFileConnection {
+  values: [UploadFile]
+  groupBy: UploadFileGroupBy
+  aggregate: UploadFileAggregator
+}
+
+type UploadFileAggregator {
+  count: Int
+  totalCount: Int
+  sum: UploadFileAggregatorSum
+  avg: UploadFileAggregatorAvg
+  min: UploadFileAggregatorMin
+  max: UploadFileAggregatorMax
+}
+
+type UploadFileAggregatorSum {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorAvg {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMin {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMax {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileGroupBy {
+  id: [UploadFileConnectionId]
+  _id: [UploadFileConnection_id]
+  createdAt: [UploadFileConnectionCreatedAt]
+  updatedAt: [UploadFileConnectionUpdatedAt]
+  name: [UploadFileConnectionName]
+  alternativeText: [UploadFileConnectionAlternativeText]
+  caption: [UploadFileConnectionCaption]
+  width: [UploadFileConnectionWidth]
+  height: [UploadFileConnectionHeight]
+  formats: [UploadFileConnectionFormats]
+  hash: [UploadFileConnectionHash]
+  ext: [UploadFileConnectionExt]
+  mime: [UploadFileConnectionMime]
+  size: [UploadFileConnectionSize]
+  url: [UploadFileConnectionUrl]
+  previewUrl: [UploadFileConnectionPreviewUrl]
+  provider: [UploadFileConnectionProvider]
+  provider_metadata: [UploadFileConnectionProvider_metadata]
+}
+
+type UploadFileConnectionId {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnection_id {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionName {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionAlternativeText {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCaption {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionWidth {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHeight {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionFormats {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHash {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionExt {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionMime {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSize {
+  key: Float
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionPreviewUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider_metadata {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+input FileInput {
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editFileInput {
+  name: String
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String
+  ext: String
+  mime: String
+  size: Float
+  url: String
+  previewUrl: String
+  provider: String
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input deleteFileInput {
+  where: InputID
+}
+
+type deleteFilePayload {
+  file: UploadFile
+}
+
+type UsersPermissionsPermission {
+  id: ID!
+  _id: ID!
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsRole {
+  id: ID!
+  _id: ID!
+  name: String!
+  description: String
+  type: String
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UsersPermissionsRoleConnection {
+  values: [UsersPermissionsRole]
+  groupBy: UsersPermissionsRoleGroupBy
+  aggregate: UsersPermissionsRoleAggregator
+}
+
+type UsersPermissionsRoleAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsRoleGroupBy {
+  id: [UsersPermissionsRoleConnectionId]
+  _id: [UsersPermissionsRoleConnection_id]
+  name: [UsersPermissionsRoleConnectionName]
+  description: [UsersPermissionsRoleConnectionDescription]
+  type: [UsersPermissionsRoleConnectionType]
+}
+
+type UsersPermissionsRoleConnectionId {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnection_id {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionName {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionDescription {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionType {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+input RoleInput {
+  name: String!
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editRoleInput {
+  name: String
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input createRoleInput {
+  data: RoleInput
+}
+
+type createRolePayload {
+  role: UsersPermissionsRole
+}
+
+input updateRoleInput {
+  where: InputID
+  data: editRoleInput
+}
+
+type updateRolePayload {
+  role: UsersPermissionsRole
+}
+
+input deleteRoleInput {
+  where: InputID
+}
+
+type deleteRolePayload {
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsUser {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsRole
+  groups(sort: String, limit: Int, start: Int, where: JSON): [Group]
+}
+
+type UsersPermissionsUserConnection {
+  values: [UsersPermissionsUser]
+  groupBy: UsersPermissionsUserGroupBy
+  aggregate: UsersPermissionsUserAggregator
+}
+
+type UsersPermissionsUserAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsUserGroupBy {
+  id: [UsersPermissionsUserConnectionId]
+  _id: [UsersPermissionsUserConnection_id]
+  createdAt: [UsersPermissionsUserConnectionCreatedAt]
+  updatedAt: [UsersPermissionsUserConnectionUpdatedAt]
+  username: [UsersPermissionsUserConnectionUsername]
+  email: [UsersPermissionsUserConnectionEmail]
+  provider: [UsersPermissionsUserConnectionProvider]
+  confirmed: [UsersPermissionsUserConnectionConfirmed]
+  blocked: [UsersPermissionsUserConnectionBlocked]
+  role: [UsersPermissionsUserConnectionRole]
+}
+
+type UsersPermissionsUserConnectionId {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnection_id {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionCreatedAt {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUpdatedAt {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUsername {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionProvider {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionConfirmed {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionBlocked {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionRole {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+input UserInput {
+  username: String!
+  email: String!
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmationToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  groups: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editUserInput {
+  username: String
+  email: String
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmationToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  groups: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input createUserInput {
+  data: UserInput
+}
+
+type createUserPayload {
+  user: UsersPermissionsUser
+}
+
+input updateUserInput {
+  where: InputID
+  data: editUserInput
+}
+
+type updateUserPayload {
+  user: UsersPermissionsUser
+}
+
+input deleteUserInput {
+  where: InputID
+}
+
+type deleteUserPayload {
+  user: UsersPermissionsUser
+}
+
+type ComponentArAr {
+  id: ID!
+  _id: ID!
+  modelFile: UploadFile
+  background: UploadFile
+}
+
+input ComponentArArInput {
+  modelFile: ID
+  background: ID
+}
+
+input editComponentArArInput {
+  id: ID
+  modelFile: ID
+  background: ID
+}
+
+type ComponentBillingBillingInformation {
+  id: ID!
+  _id: ID!
+  name: String
+  postalAddress: String
+}
+
+input ComponentBillingBillingInformationInput {
+  name: String
+  postalAddress: String
+}
+
+input editComponentBillingBillingInformationInput {
+  id: ID
+  name: String
+  postalAddress: String
+}
+
+type ComponentContactContact {
+  id: ID!
+  _id: ID!
+  name: String
+  email: String
+  phone: String
+}
+
+input ComponentContactContactInput {
+  name: String
+  email: String
+  phone: String
+}
+
+input editComponentContactContactInput {
+  id: ID
+  name: String
+  email: String
+  phone: String
+}
+
+enum ENUM_COMPONENTLINKLINK_TYPE {
+  AR
+  AUDIO
+  IFRAME
+  LINK
+  VIDEO
+  GAME
+}
+
+type ComponentLinkLink {
+  id: ID!
+  _id: ID!
+  type: ENUM_COMPONENTLINKLINK_TYPE
+  name: String!
+  url: String!
+}
+
+input ComponentLinkLinkInput {
+  type: ENUM_COMPONENTLINKLINK_TYPE
+  name: String!
+  url: String!
+}
+
+input editComponentLinkLinkInput {
+  id: ID
+  type: ENUM_COMPONENTLINKLINK_TYPE
+  name: String
+  url: String
+}
+
+type ComponentVesselVessel {
+  id: ID!
+  _id: ID!
+  name: String
+  mmsi: String
+}
+
+input ComponentVesselVesselInput {
+  name: String
+  mmsi: String
+}
+
+input editComponentVesselVesselInput {
+  id: ID
+  name: String
+  mmsi: String
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | About | updateAboutPayload | deleteAboutPayload | Badge | BadgeConnection | BadgeAggregator | BadgeGroupBy | BadgeConnectionId | BadgeConnection_id | BadgeConnectionCreatedAt | BadgeConnectionUpdatedAt | BadgeConnectionName | BadgeConnectionDescription | BadgeConnectionImage | BadgeConnectionLocale | createBadgePayload | updateBadgePayload | deleteBadgePayload | Customer | CustomerConnection | CustomerAggregator | CustomerGroupBy | CustomerConnectionId | CustomerConnection_id | CustomerConnectionCreatedAt | CustomerConnectionUpdatedAt | CustomerConnectionName | CustomerConnectionBilling | CustomerConnectionContact | createCustomerPayload | updateCustomerPayload | deleteCustomerPayload | DataSource | DataSourceConnection | DataSourceAggregator | DataSourceGroupBy | DataSourceConnectionId | DataSourceConnection_id | DataSourceConnectionCreatedAt | DataSourceConnectionUpdatedAt | DataSourceConnectionName | DataSourceConnectionSlug | DataSourceConnectionDescription | createDataSourcePayload | updateDataSourcePayload | deleteDataSourcePayload | Event | EventConnection | EventAggregator | EventGroupBy | EventConnectionId | EventConnection_id | EventConnectionCreatedAt | EventConnectionUpdatedAt | EventConnectionType | EventConnectionMessage | EventConnectionGroup | EventConnectionJourney | EventConnectionPlace | EventConnectionEvent | EventConnectionBadge | EventConnectionUid | EventConnectionService | createEventPayload | updateEventPayload | deleteEventPayload | Group | GroupConnection | GroupAggregator | GroupAggregatorSum | GroupAggregatorAvg | GroupAggregatorMin | GroupAggregatorMax | GroupGroupBy | GroupConnectionId | GroupConnection_id | GroupConnectionCreatedAt | GroupConnectionUpdatedAt | GroupConnectionName | GroupConnectionWelcome | GroupConnectionLogo | GroupConnectionPrimaryColor | GroupConnectionSecondaryColor | GroupConnectionTextColor | GroupConnectionToken | GroupConnectionVerified | GroupConnectionCover | GroupConnectionSlug | GroupConnectionShowPublicContent | GroupConnectionHomepageUrl | GroupConnectionHomepageTitle | GroupConnectionDescription | GroupConnectionCustomer | GroupConnectionShowMascot | GroupConnectionNumberOfJourneys | GroupConnectionNumberOfPlaces | GroupConnectionDesktopCover | GroupConnectionLocale | createGroupPayload | updateGroupPayload | deleteGroupPayload | Journey | JourneyConnection | JourneyAggregator | JourneyAggregatorSum | JourneyAggregatorAvg | JourneyAggregatorMin | JourneyAggregatorMax | JourneyGroupBy | JourneyConnectionId | JourneyConnection_id | JourneyConnectionCreatedAt | JourneyConnectionUpdatedAt | JourneyConnectionName | JourneyConnectionSlug | JourneyConnectionCover | JourneyConnectionExcerpt | JourneyConnectionDescription | JourneyConnectionDistance | JourneyConnectionDuration | JourneyConnectionDifficulty | JourneyConnectionGroupSize | JourneyConnectionTargetGroup | JourneyConnectionCategory | JourneyConnectionGeometry | JourneyConnectionGeoJSON | JourneyConnectionBadge | JourneyConnectionAccessibility | JourneyConnectionElevation | JourneyConnectionGpx | JourneyConnectionAudioGuide | JourneyConnectionAudioLoop | JourneyConnectionPublishDate | JourneyConnectionExpirationDate | JourneyConnectionPublic | JourneyConnectionFeatured | JourneyConnectionOwnerGroup | JourneyConnectionShowNextPlace | JourneyConnectionCalculateDistance | JourneyConnectionRoute | JourneyConnectionLocale | JourneyConnectionPublished_at | createJourneyPayload | updateJourneyPayload | deleteJourneyPayload | Message | MessageConnection | MessageAggregator | MessageGroupBy | MessageConnectionId | MessageConnection_id | MessageConnectionCreatedAt | MessageConnectionUpdatedAt | MessageConnectionSubject | MessageConnectionMessage | MessageConnectionOs | MessageConnectionBrowser | MessageConnectionUrl | createMessagePayload | updateMessagePayload | deleteMessagePayload | Place | PlaceConnection | PlaceAggregator | PlaceAggregatorSum | PlaceAggregatorAvg | PlaceAggregatorMin | PlaceAggregatorMax | PlaceGroupBy | PlaceConnectionId | PlaceConnection_id | PlaceConnectionCreatedAt | PlaceConnectionUpdatedAt | PlaceConnectionName | PlaceConnectionSlug | PlaceConnectionDescription | PlaceConnectionCover | PlaceConnectionPublicContent | PlaceConnectionContent | PlaceConnectionGeoJSON | PlaceConnectionAudioGuide | PlaceConnectionIcon | PlaceConnectionPublishDate | PlaceConnectionExpirationDate | PlaceConnectionPublic | PlaceConnectionOrder | PlaceConnectionOwnerGroup | PlaceConnectionToken | PlaceConnectionLocale | PlaceConnectionPublished_at | createPlacePayload | updatePlacePayload | deletePlacePayload | PrivacyPolicy | updatePrivacyPolicyPayload | deletePrivacyPolicyPayload | Service | ServiceConnection | ServiceAggregator | ServiceAggregatorSum | ServiceAggregatorAvg | ServiceAggregatorMin | ServiceAggregatorMax | ServiceGroupBy | ServiceConnectionId | ServiceConnection_id | ServiceConnectionCreatedAt | ServiceConnectionUpdatedAt | ServiceConnectionName | ServiceConnectionDescription | ServiceConnectionHomepage | ServiceConnectionLatitude | ServiceConnectionLongitude | ServiceConnectionGeoJSON | ServiceConnectionCover | ServiceConnectionTag | ServiceConnectionIcon | ServiceConnectionLocale | createServicePayload | updateServicePayload | deleteServicePayload | Tag | TagConnection | TagAggregator | TagGroupBy | TagConnectionId | TagConnection_id | TagConnectionCreatedAt | TagConnectionUpdatedAt | TagConnectionName | TagConnectionSlug | TagConnectionLocale | createTagPayload | updateTagPayload | deleteTagPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentArAr | ComponentBillingBillingInformation | ComponentContactContact | ComponentLinkLink | ComponentVesselVessel
+
+input InputID {
+  id: ID!
+}
+
+enum PublicationState {
+  LIVE
+  PREVIEW
+}
+
+type AdminUser {
+  id: ID!
+  username: String
+  firstname: String!
+  lastname: String!
+}
+
+type Query {
+  about(publicationState: PublicationState, locale: String): About
+  badge(id: ID!, publicationState: PublicationState): Badge
+  badges(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState, locale: String): [Badge]
+  badgesConnection(sort: String, limit: Int, start: Int, where: JSON, locale: String): BadgeConnection
+  customer(id: ID!, publicationState: PublicationState): Customer
+  customers(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Customer]
+  customersConnection(sort: String, limit: Int, start: Int, where: JSON): CustomerConnection
+  dataSource(id: ID!, publicationState: PublicationState): DataSource
+  dataSources(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [DataSource]
+  dataSourcesConnection(sort: String, limit: Int, start: Int, where: JSON): DataSourceConnection
+  event(id: ID!, publicationState: PublicationState): Event
+  events(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Event]
+  eventsConnection(sort: String, limit: Int, start: Int, where: JSON): EventConnection
+  group(id: ID!, publicationState: PublicationState): Group
+  groups(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState, locale: String): [Group]
+  groupsConnection(sort: String, limit: Int, start: Int, where: JSON, locale: String): GroupConnection
+  journey(id: ID!, publicationState: PublicationState): Journey
+  journeys(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState, locale: String): [Journey]
+  journeysConnection(sort: String, limit: Int, start: Int, where: JSON, locale: String): JourneyConnection
+  message(id: ID!, publicationState: PublicationState): Message
+  messages(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Message]
+  messagesConnection(sort: String, limit: Int, start: Int, where: JSON): MessageConnection
+  place(id: ID!, publicationState: PublicationState): Place
+  places(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState, locale: String): [Place]
+  placesConnection(sort: String, limit: Int, start: Int, where: JSON, locale: String): PlaceConnection
+  privacyPolicy(publicationState: PublicationState, locale: String): PrivacyPolicy
+  service(id: ID!, publicationState: PublicationState): Service
+  services(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState, locale: String): [Service]
+  servicesConnection(sort: String, limit: Int, start: Int, where: JSON, locale: String): ServiceConnection
+  tag(id: ID!, publicationState: PublicationState): Tag
+  tags(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState, locale: String): [Tag]
+  tagsConnection(sort: String, limit: Int, start: Int, where: JSON, locale: String): TagConnection
+  files(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UploadFile]
+  filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
+  role(id: ID!, publicationState: PublicationState): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UsersPermissionsRole]
+  rolesConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsRoleConnection
+  user(id: ID!, publicationState: PublicationState): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UsersPermissionsUser]
+  usersConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsUserConnection
+  me: UsersPermissionsMe
+  journeysByLocation(sort: String, limit: Int, start: Int, location: LocationInput!, where: JSON): [Journey]!
+  placesByLocation(sort: String, limit: Int, start: Int, location: LocationInput!, where: JSON): [Place]!
+  placesOnMap(sort: String, limit: Int, start: Int, location: LocationInput!, where: JSON): [Place]!
+  servicesByLocation(sort: String, limit: Int, start: Int, location: LocationInput!, where: JSON): [Service]!
+}
+
+type Mutation {
+  updateAbout(input: updateAboutInput, locale: String): updateAboutPayload
+  deleteAbout(locale: String): deleteAboutPayload
+  createBadge(input: createBadgeInput): createBadgePayload
+  updateBadge(input: updateBadgeInput): updateBadgePayload
+  deleteBadge(input: deleteBadgeInput): deleteBadgePayload
+  createCustomer(input: createCustomerInput): createCustomerPayload
+  updateCustomer(input: updateCustomerInput): updateCustomerPayload
+  deleteCustomer(input: deleteCustomerInput): deleteCustomerPayload
+  createDataSource(input: createDataSourceInput): createDataSourcePayload
+  updateDataSource(input: updateDataSourceInput): updateDataSourcePayload
+  deleteDataSource(input: deleteDataSourceInput): deleteDataSourcePayload
+  createEvent(input: createEventInput): createEventPayload
+  updateEvent(input: updateEventInput): updateEventPayload
+  deleteEvent(input: deleteEventInput): deleteEventPayload
+  createGroup(input: createGroupInput): createGroupPayload
+  updateGroup(input: updateGroupInput): updateGroupPayload
+  deleteGroup(input: deleteGroupInput): deleteGroupPayload
+  createJourney(input: createJourneyInput): createJourneyPayload
+  updateJourney(input: updateJourneyInput): updateJourneyPayload
+  deleteJourney(input: deleteJourneyInput): deleteJourneyPayload
+  createMessage(input: createMessageInput): createMessagePayload
+  updateMessage(input: updateMessageInput): updateMessagePayload
+  deleteMessage(input: deleteMessageInput): deleteMessagePayload
+  createPlace(input: createPlaceInput): createPlacePayload
+  updatePlace(input: updatePlaceInput): updatePlacePayload
+  deletePlace(input: deletePlaceInput): deletePlacePayload
+  updatePrivacyPolicy(input: updatePrivacyPolicyInput, locale: String): updatePrivacyPolicyPayload
+  deletePrivacyPolicy(locale: String): deletePrivacyPolicyPayload
+  createService(input: createServiceInput): createServicePayload
+  updateService(input: updateServiceInput): updateServicePayload
+  deleteService(input: deleteServiceInput): deleteServicePayload
+  createTag(input: createTagInput): createTagPayload
+  updateTag(input: updateTagInput): updateTagPayload
+  deleteTag(input: deleteTagInput): deleteTagPayload
+
+  """Delete one file"""
+  deleteFile(input: deleteFileInput): deleteFilePayload
+
+  """Create a new role"""
+  createRole(input: createRoleInput): createRolePayload
+
+  """Update an existing role"""
+  updateRole(input: updateRoleInput): updateRolePayload
+
+  """Delete an existing role"""
+  deleteRole(input: deleteRoleInput): deleteRolePayload
+
+  """Create a new user"""
+  createUser(input: createUserInput): createUserPayload
+
+  """Update an existing user"""
+  updateUser(input: updateUserInput): updateUserPayload
+
+  """Delete an existing user"""
+  deleteUser(input: deleteUserInput): deleteUserPayload
+  createAboutLocalization(input: updateAboutInput!): About!
+  createBadgeLocalization(input: updateBadgeInput!): Badge!
+  createGroupLocalization(input: updateGroupInput!): Group!
+  createJourneyLocalization(input: updateJourneyInput!): Journey!
+  createPlaceLocalization(input: updatePlaceInput!): Place!
+  createPrivacyPolicyLocalization(input: updatePrivacyPolicyInput!): PrivacyPolicy!
+  createServiceLocalization(input: updateServiceInput!): Service!
+  createTagLocalization(input: updateTagInput!): Tag!
+  upload(refId: ID, ref: String, field: String, source: String, info: FileInfoInput, file: Upload!): UploadFile!
+  multipleUpload(refId: ID, ref: String, field: String, source: String, files: [Upload]!): [UploadFile]!
+  updateFileInfo(id: ID!, info: FileInfoInput!): UploadFile!
+  login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
+  register(input: UsersPermissionsRegisterInput!): UsersPermissionsLoginPayload!
+  forgotPassword(email: String!): UserPermissionsPasswordPayload
+  resetPassword(password: String!, passwordConfirmation: String!, code: String!): UsersPermissionsLoginPayload
+  emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+"""A time string with format: HH:mm:ss.SSS"""
+scalar Time
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+"""The `Long` scalar type represents 52-bit integers"""
+scalar Long
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload

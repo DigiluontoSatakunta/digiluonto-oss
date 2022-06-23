@@ -1,0 +1,6 @@
+.activeRow {
+  background-color: #f5f5f5;
+}
+.activeRow td {
+  font-weight: 600;
+}

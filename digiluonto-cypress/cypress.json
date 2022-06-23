@@ -1,0 +1,26 @@
+{
+  "baseUrl": "https://app.digiluonto.fi",
+  "projectId": "digiluonto-client",
+  "integrationFolder": "tests",
+  "env": {
+    "apiUrl": "https://api.digiluonto.fi",
+    "cmsUrl": "https://cms.digiluonto.fi",
+    "staticUrl": "https://www.digiluonto.fi",
+    "defaultLocation": {
+      "lat": 61.492,
+      "lon": 21.800
+    }
+  },
+  "experimentalStudio": false,
+
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "results/test-output-[hash].xml",
+    "toConsole": false,
+    "outputs": true,
+    "jenkinsMode": true
+  },
+
+  "viewportWidth": 375,
+  "viewportHeight": 667
+}

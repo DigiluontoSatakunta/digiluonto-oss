@@ -1,0 +1,31 @@
+{
+  "collectionName": "link",
+  "info": {
+    "name": "Link",
+    "icon": "link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "AR",
+        "AUDIO",
+        "IFRAME",
+        "LINK",
+        "VIDEO",
+        "GAME"
+      ],
+      "default": "VIDEO"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "data_sources",
+  "info": {
+    "name": "DataSource",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": false,
+      "maxLength": 200,
+      "minLength": 5
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

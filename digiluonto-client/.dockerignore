@@ -1,0 +1,7 @@
+*.md
+.gitignore
+_deploy_container.sj
+
+.git
+.devcontainer
+node_modules

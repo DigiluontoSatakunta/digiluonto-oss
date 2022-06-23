@@ -1,0 +1,83 @@
+{
+  "$ref": "#/definitions/Luontokohteet",
+  "definitions": {
+    "Luontokohteet": {
+      "type": "object",
+      "title": "Luontokohteet",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "crs": {
+          "$ref": "#/definitions/CRS"
+        },
+        "features": {
+          "$ref": "#/definitions/Features"
+        }
+      }
+    },
+    "Features": {
+      "type": "array",
+      "title": "Features",
+      "items": {
+        "$ref": "#/definitions/Feature"
+      }
+    },
+    "Feature": {
+      "title": "Feature",
+      "properties": {
+        "geometry": {
+          "$ref": "#/definitions/Geometry"
+        },
+        "properties": {
+          "$ref": "#/definitions/Properties"
+        }
+      }
+    },
+    "Geometry": {
+      "type": "object",
+      "title": "Geometry",
+      "properties": {
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "Properties": {
+      "type": "object",
+      "title": "Properties",
+      "properties": {
+        "FID": {
+          "type": "integer"
+        },
+        "nimi": {
+          "type": "string"
+        },
+        "kuvaus": {
+          "type": "string"
+        },
+        "Icon_color": {
+          "type": "string"
+        },
+        "Thumb": {
+          "type": "string"
+        },
+        "pic_url": {
+          "type": "string"
+        }
+      }
+    },
+    "CRS": {
+      "type": "object",
+      "title": "CRS",
+      "properties": {
+        "properties": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

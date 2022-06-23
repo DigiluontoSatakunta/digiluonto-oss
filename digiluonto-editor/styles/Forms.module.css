@@ -1,0 +1,12 @@
+.fieldSubmitController {
+  display: grid;
+  gap: 8px; /* sx yksikkö 1 on css yksikkönä 8px = base unit */
+  margin: 0 -16px;
+  padding: 16px;
+  z-index: 1;
+  position: sticky;
+  bottom: 0;
+  grid-template-columns: 1fr 2fr;
+  box-shadow: 0 -3px 4px -2px rgb(0 0 0 / 20%);
+  background-color: white;
+}

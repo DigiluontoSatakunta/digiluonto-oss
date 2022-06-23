@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=0"
+    />
+    <title>Verkkovirhe | Network Error 😢</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #333;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 20px;
+        text-align: center;
+        line-height: 1.4;
+      }
+      a {
+        color: #f44336;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Verkkovirhe:<br />Sovellus ei saa yhteyttä palvelimeen 😢</h3>
+    <p>
+      <a id="link" href="/">Yritä uudelleen</a>
+    </p>
+  </body>
+  <script>
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+        document
+          .getElementById("link")
+          .setAttribute("href", `/${window.location.search}`);
+      },
+      false
+    );
+  </script>
+</html>

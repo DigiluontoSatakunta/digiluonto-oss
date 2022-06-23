@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_question_questions",
+  "info": {
+    "name": "question",
+    "icon": "question"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "richtext",
+      "required": true
+    },
+    "explanation": {
+      "type": "richtext"
+    },
+    "answers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "answer.answer"
+    }
+  }
+}

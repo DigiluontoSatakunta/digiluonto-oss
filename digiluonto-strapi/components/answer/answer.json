@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_answer_answers",
+  "info": {
+    "name": "answer",
+    "icon": "exclamation"
+  },
+  "options": {},
+  "attributes": {
+    "answer": {
+      "type": "string",
+      "required": true
+    },
+    "correctAnswer": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

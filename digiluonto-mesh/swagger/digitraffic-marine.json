@@ -1,0 +1,241 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Digitraffic Marine API",
+    "description": "Digitraffic is a service operated by the [Fintraffic](https://www.fintraffic.fi) offering real time traffic information. Currently the service covers *road, marine and rail* traffic. More information can be found at the [Digitraffic website](https://www.digitraffic.fi/) \n\nThe service has a public Google-group [meri.digitraffic.fi](https://groups.google.com/forum/#!forum/meridigitrafficfi) for communication between developers, service administrators and Fintraffic. The discussion in the forum is mostly in Finnish, but you're welcome to communicate in English too. \n\n### General notes of the API\n* Many Digitraffic APIs use GeoJSON as data format. Definition of the GeoJSON format can be found at https://tools.ietf.org/html/rfc7946.\n* For dates and times [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format is used with \"Zulu\" zero offset from UTC unless otherwise specified (i.e., \"yyyy-mm-ddThh:mm:ss[.mmm]Z\"). E.g. 2019-11-01T06:30:00Z.",
+    "termsOfService": "https://www.digitraffic.fi/en/terms-of-service/",
+    "contact": {
+      "name": "Digitraffic / Fintraffic",
+      "url": "https://www.digitraffic.fi/"
+    },
+    "license": {
+      "name": "Digitraffic is an open data service. All content from the service and the service documentation is licenced under the Creative Commons 4.0 BY license.",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "version": "2.92.0-"
+  },
+  "servers": [
+    {
+      "url": "https://meri.digitraffic.fi"
+    }
+  ],
+  "tags": [
+    {
+      "name": "vessel-location-controller",
+      "description": "Vessel Location Controller"
+    }
+  ],
+  "paths": {
+    "/api/v1/locations/latest/{mmsi}": {
+      "get": {
+        "tags": [
+          "vessel-location-controller"
+        ],
+        "summary": "Find latest vessel locations by mmsi and optional timestamp interval in milliseconds from Unix epoch.",
+        "operationId": "vesselLocationsByMssiAndTimestamp",
+        "parameters": [
+          {
+            "name": "mmsi",
+            "in": "path",
+            "description": "Maritime Mobile Service Identity (MMSI)",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "From timestamp timestamp in milliseconds from Unix epoch 1970-01-01T00:00:00Z",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "To timestamp",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VesselLocationFeatureCollection"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VesselLocationFeatureCollection"
+                }
+              },
+              "application/vnd.geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VesselLocationFeatureCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "VesselLocationFeature": {
+        "required": [
+          "geometry",
+          "mmsi",
+          "properties"
+        ],
+        "type": "object",
+        "properties": {
+          "mmsi": {
+            "type": "integer",
+            "description": "Maritime Mobile Service Identity (nine digit identifier)",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "description": "GeoJSON object type"
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Point"
+          },
+          "properties": {
+            "$ref": "#/components/schemas/VesselLocationProperties"
+          }
+        },
+        "description": "GeoJSON Feature object"
+      },
+      "VesselLocationFeatureCollection": {
+        "required": [
+          "features"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "GeoJSON object type"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VesselLocationFeature"
+            }
+          }
+        },
+        "description": "GeoJSON FeatureCollection object"
+      },
+      "VesselLocationProperties": {
+        "required": [
+          "cog",
+          "mmsi",
+          "navStat",
+          "posAcc",
+          "raim",
+          "rot",
+          "sog",
+          "timestamp",
+          "timestampExternal"
+        ],
+        "type": "object",
+        "properties": {
+          "mmsi": {
+            "type": "integer",
+            "description": "Maritime Mobile Service Identity (nine digit identifier)",
+            "format": "int32"
+          },
+          "sog": {
+            "type": "number",
+            "description": "Speed over ground in 1/10 knot steps, 1023 = not available, 1022 = 102.2 knots or higher ",
+            "format": "double"
+          },
+          "cog": {
+            "type": "number",
+            "description": "Course over ground in 1/10 degree steps, 3600 = not available (default)",
+            "format": "double"
+          },
+          "navStat": {
+            "type": "integer",
+            "description": "Navigational status. \nValue range between 0 - 15. \n0 = under way using engine, \n1 = at anchor, \n2 = not under command, \n3 = restricted maneuverability, \n4 = constrained by her draught, \n5 = moored, \n6 = aground, \n7 = engaged in fishing, \n8 = under way sailing, \n9 = reserved for future amendment of navigational status for ships carrying DG, HS, or MP, or IMO hazard or pollutant category C, high speed craft (HSC), \n10 = reserved for future amendment of navigational status for ships carrying dangerous goods (DG), harmful substances (HS) or marine pollutants (MP), or IMO hazard or pollutant category A, wing in ground (WIG), \n11 = power-driven vessel towing astern (regional use),\n12 = power-driven vessel pushing ahead or towing alongside (regional use), \n13 = reserved for future use, \n14 = AIS-SART (active), MOB-AIS, EPIRB-AIS, \n15 = default",
+            "format": "int32"
+          },
+          "rot": {
+            "type": "integer",
+            "description": "Rate of turn, ROT[AIS]. \nValues range between -128 - 127. –128 indicates that value is not available (default).\nCoded by ROT[AIS] = 4.733 SQRT(ROT[IND]) where ROT[IND] is the Rate of Turn degrees per minute, as indicated by an external sensor. \n+127 = turning right at 720 degrees per minute or higher\n-127 = turning left at 720 degrees per minute or higher.",
+            "format": "int32"
+          },
+          "posAcc": {
+            "type": "boolean",
+            "description": "Position accuracy, 1 = high, 0 = low"
+          },
+          "raim": {
+            "type": "boolean",
+            "description": "Receiver autonomous integrity monitoring (RAIM) flag of electronic position fixing device"
+          },
+          "heading": {
+            "type": "integer",
+            "description": "Degrees (0-359), 511 = not available (default)",
+            "format": "int32"
+          },
+          "timestamp": {
+            "type": "integer",
+            "description": "UTC second when the report was generated by the electronic position system (EPFS). \nValues: \n0-59 UTC second, \n60 if time stamp is not available, which should also be the default value, \n61 if positioning system is in manual input mode, \n62 if electronic position fixing system operates in estimated (dead reckoning) mode, \n63 if the positioning system is inoperative)",
+            "format": "int64"
+          },
+          "timestampExternal": {
+            "type": "integer",
+            "description": "Location record timestamp in milliseconds from Unix epoch.",
+            "format": "int64"
+          }
+        },
+        "description": "GeoJSON Properties object"
+      },
+      "Point": {
+        "required": [
+          "coordinates",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "Point"
+          },
+          "coordinates": {
+            "type": "array",
+            "description": "An array of coordinates. Coordinates are in WGS84 format in decimal degrees: [LONGITUDE, LATITUDE, {ALTITUDE}]. Altitude is optional and measured in meters.",
+            "example": [
+              26.97677492,
+              65.3467385
+            ],
+            "items": {
+              "type": "number",
+              "description": "An array of coordinates. Coordinates are in WGS84 format in decimal degrees: [LONGITUDE, LATITUDE, {ALTITUDE}]. Altitude is optional and measured in meters.",
+              "format": "double"
+            }
+          }
+        },
+        "description": "GeoJSON Point Geometry object"
+      }
+    },
+    "securitySchemes": {
+      "api_key": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header"
+      }
+    }
+  }
+}

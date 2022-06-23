@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_ar_ars",
+  "info": {
+    "name": "AR",
+    "icon": "dragon",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "modelFile": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "background": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

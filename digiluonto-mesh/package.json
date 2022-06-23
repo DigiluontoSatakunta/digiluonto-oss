@@ -1,0 +1,18 @@
+{
+  "name": "digiluonto-mesh",
+  "version": "2022.24.0",
+  "description": "GraphQL Mesh to collect 3rd party APIs to GraphQL",
+  "author": "teemu.jonkkari@tuni.fi",
+  "license": "MIT",
+  "dependencies": {
+    "@graphql-mesh/cache-redis": "^0.7.27",
+    "@graphql-mesh/cli": "^0.62.2",
+    "@graphql-mesh/graphql": "^0.22.7",
+    "@graphql-mesh/json-schema": "^0.26.9",
+    "@graphql-mesh/openapi": "^0.23.27",
+    "@graphql-mesh/runtime": "^0.33.15",
+    "@graphql-mesh/transform-cache": "^0.11.44",
+    "@graphql-mesh/transform-prefix": "^0.11.36",
+    "graphql": "^16.4.0"
+  }
+}

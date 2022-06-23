@@ -1,0 +1,450 @@
+{
+  "kind": "collectionType",
+  "collectionName": "places",
+  "info": {
+    "name": "Place",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 100,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "slug": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "description": {
+      "type": "text",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "latitude": {
+      "type": "float",
+      "required": true,
+      "private": true,
+      "min": -90,
+      "max": 90,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "longitude": {
+      "type": "float",
+      "required": true,
+      "private": true,
+      "min": -180,
+      "max": 180,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "tags": {
+      "collection": "tag"
+    },
+    "radius": {
+      "type": "integer",
+      "default": 10,
+      "required": false,
+      "min": 5,
+      "max": 100,
+      "private": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "journeys": {
+      "via": "places",
+      "collection": "journey"
+    },
+    "publicContent": {
+      "type": "boolean",
+      "default": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "content": {
+      "type": "richtext",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.link",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "geoJSON": {
+      "type": "json",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "groups": {
+      "via": "places",
+      "collection": "group",
+      "dominant": true
+    },
+    "audioGuide": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "abseiling",
+        "accounting",
+        "airport",
+        "amusement_park",
+        "aquarium",
+        "archery",
+        "art_gallery",
+        "assistive_listening_system",
+        "atm",
+        "audio_description",
+        "bakery",
+        "bank",
+        "bar",
+        "baseball",
+        "beauty_salon",
+        "bicycle_store",
+        "bicycling",
+        "boat_ramp",
+        "boat_tour",
+        "boating",
+        "book_store",
+        "bowling_alley",
+        "braille",
+        "bus_station",
+        "cafe",
+        "campground",
+        "canoe",
+        "car_dealer",
+        "car_rental",
+        "car_repair",
+        "car_wash",
+        "casino",
+        "cemetery",
+        "chairlift",
+        "church",
+        "city_hall",
+        "climbing",
+        "closed_captioning",
+        "clothing_store",
+        "compass",
+        "convenience_store",
+        "courthouse",
+        "cross_country_skiing",
+        "crosshairs",
+        "dentist",
+        "department_store",
+        "diving",
+        "doctor",
+        "electrician",
+        "electronics_store",
+        "embassy",
+        "female",
+        "finance",
+        "fire_station",
+        "fish_cleaning",
+        "fishing_pier",
+        "fishing",
+        "florist",
+        "food",
+        "funeral_home",
+        "furniture_store",
+        "gas_station",
+        "general_contractor",
+        "golf",
+        "grocery_or_supermarket",
+        "gym",
+        "hair_care",
+        "hang_gliding",
+        "hardware_store",
+        "health",
+        "hindu_temple",
+        "horse_riding",
+        "hospital",
+        "ice_fishing",
+        "ice_skating",
+        "inline_skating",
+        "insurance_agency",
+        "jet_skiing",
+        "jewelry_store",
+        "kayaking",
+        "laundry",
+        "lawyer",
+        "library",
+        "liquor_store",
+        "local_government",
+        "locksmith",
+        "lodging",
+        "low_vision_access",
+        "male",
+        "marina",
+        "mosque",
+        "motobike_trail",
+        "movie_rental",
+        "movie_theater",
+        "moving_company",
+        "museum",
+        "natural_feature",
+        "night_club",
+        "open_captioning",
+        "painter",
+        "park",
+        "parking",
+        "pet_store",
+        "pharmacy",
+        "physiotherapist",
+        "place_of_worship",
+        "playground",
+        "plumber",
+        "point_of_interest",
+        "police",
+        "political",
+        "post_box",
+        "post_office",
+        "postal_code_prefix",
+        "postal_code",
+        "rafting",
+        "real_estate_agency",
+        "restaurant",
+        "route_pin",
+        "route",
+        "rv_park",
+        "sailing",
+        "school",
+        "scuba_diving",
+        "sheild",
+        "shopping_mall",
+        "sign_language",
+        "skateboarding",
+        "ski_jumping",
+        "skiing",
+        "sledding",
+        "snow_shoeing",
+        "snow",
+        "snowboarding",
+        "snowmobile",
+        "spa",
+        "square",
+        "stadium",
+        "storage",
+        "store",
+        "subway_station",
+        "surfing",
+        "swimming",
+        "synagogue",
+        "taxi_stand",
+        "tennis",
+        "toilet",
+        "trail_walking",
+        "train_station",
+        "transit_station",
+        "travel_agency",
+        "unisex",
+        "university",
+        "veterinary_care",
+        "viewing",
+        "volume_control_telephone",
+        "walking",
+        "waterskiing",
+        "whale_watching",
+        "wheelchair",
+        "wind_surfing",
+        "zoo"
+      ],
+      "default": "postal_code",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "publishDate": {
+      "type": "datetime",
+      "default": "2021-01-01T10:00:00.000Z",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "expirationDate": {
+      "type": "datetime",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "public": {
+      "type": "boolean",
+      "default": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "geometry": {
+      "type": "json",
+      "index": "2dsphere",
+      "private": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "order": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer",
+      "default": 0,
+      "private": false,
+      "min": 0
+    },
+    "ownerGroup": {
+      "via": "ownPlaces",
+      "model": "group"
+    },
+    "gallery": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "token": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "ar": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "ar.ar"
+    },
+    "qr": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "allowRating": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "questions": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "question.question"
+    },
+    "author": {
+      "via": "places",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

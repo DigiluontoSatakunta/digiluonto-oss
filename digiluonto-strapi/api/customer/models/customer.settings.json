@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "name": "Customer",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "groups": {
+      "via": "customer",
+      "collection": "group"
+    },
+    "Billing": {
+      "type": "component",
+      "repeatable": false,
+      "component": "billing.billing-information"
+    },
+    "Contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contact.contact"
+    }
+  }
+}

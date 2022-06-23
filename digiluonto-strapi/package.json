@@ -1,0 +1,44 @@
+{
+  "name": "strapi",
+  "private": true,
+  "version": "2022.24.0",
+  "description": "Digiluonto Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@hapi/boom": "^9.1.4",
+    "@tmcw/togeojson": "^4.5.0",
+    "mongoose": "^5.10.8",
+    "slugify": "^1.6.0",
+    "strapi": "3.6.9",
+    "strapi-admin": "3.6.9",
+    "strapi-connector-mongoose": "3.6.9",
+    "strapi-middleware-cache": "^2.1.5",
+    "strapi-plugin-content-manager": "3.6.9",
+    "strapi-plugin-content-type-builder": "3.6.9",
+    "strapi-plugin-documentation": "^3.6.9",
+    "strapi-plugin-email": "3.6.9",
+    "strapi-plugin-graphql": "^3.6.9",
+    "strapi-plugin-i18n": "^3.6.9",
+    "strapi-plugin-sentry": "^3.6.9",
+    "strapi-plugin-upload": "3.6.9",
+    "strapi-plugin-users-permissions": "3.6.9",
+    "strapi-utils": "3.6.9",
+    "xmldom": "^0.6.0"
+  },
+  "author": {
+    "name": "Digiluonto"
+  },
+  "strapi": {
+    "uuid": "2778a3bd-f56e-4bce-bc98-750604c10999"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

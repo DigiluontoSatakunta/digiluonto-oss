@@ -1,0 +1,32 @@
+.map {
+  z-index: 0;
+  width: 100%;
+  height: calc(100vh - 126px);
+  height: calc(100dvh - 126px); /* new feature supported by safari */
+}
+
+@media only screen and (min-width: 900px) {
+  .map {
+    position: relative;
+    height: 100%;
+    display: block;
+    overflow-y: scroll;
+  }
+}
+
+.floatingButtons {
+  transform: translateZ(0px);
+  position: absolute;
+  right: 16px;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 1000;
+}
+
+@media only screen and (min-width: 900px) {
+  .floatingButtons {
+    bottom: 24px;
+  }
+}

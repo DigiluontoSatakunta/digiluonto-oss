@@ -1,0 +1,16 @@
+{
+  "short_name": "Editori",
+  "name": "digiluonto-editori",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#f44336",
+  "orientation": "portrait",
+  "background_color": "#f44336",
+  "icons": [
+    {
+      "src": "touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

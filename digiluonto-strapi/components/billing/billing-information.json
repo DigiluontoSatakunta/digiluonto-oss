@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_billing_billing_informations",
+  "info": {
+    "name": "Billing Information",
+    "icon": "euro-sign"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "postalAddress": {
+      "type": "string"
+    }
+  }
+}

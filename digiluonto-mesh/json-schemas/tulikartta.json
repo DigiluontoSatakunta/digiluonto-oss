@@ -1,0 +1,56 @@
+{
+  "$ref": "#/definitions/Fireplaces",
+  "definitions": {
+    "Fireplaces": {
+      "type": "object",
+      "title": "Fireplaces",
+      "properties": {
+        "features": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Feature"
+          }
+        }
+      }
+    },
+    "Feature": {
+      "type": "object",
+      "title": "Feature",
+      "properties": {
+        "geometry": {
+          "$ref": "#/definitions/Geometry"
+        },
+        "properties": {
+          "$ref": "#/definitions/Properties"
+        }
+      }
+    },
+    "Geometry": {
+      "type": "object",
+      "title": "Geometry",
+      "properties": {
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "Properties": {
+      "type": "object",
+      "title": "Properties",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "tyyppi": {
+          "type": "string"
+        },
+        "maakunta": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
