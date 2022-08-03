@@ -17,22 +17,22 @@ Digiluonto Open Source Software release tree.
 
 - [Teemu Katajisto](https://github.com/Tepazi), Tampere University
 - [Teemu Jönkkäri](https://github.com/teemujonkkari), Tampere University
-- [Pekka Sillberg](https://githupekka-sillbergb.com/), Tampere University
+- [Pekka Sillberg](https://github.com/pekka-sillberg), Tampere University
 
 ## Digiluonto Editor
 
 - [Teemu Jönkkäri](https://github.com/teemujonkkari), Tampere University
-- [Pekka Sillberg](https://githupekka-sillbergb.com/), Tampere University
+- [Pekka Sillberg](https://github.com/pekka-sillberg), Tampere University
 - [Teemu Katajisto](https://github.com/Tepazi), Tampere University
 
 ## Digiluonto Mesh
 
 - [Teemu Jönkkäri](https://github.com/teemujonkkari), Tampere University
-- [Pekka Sillberg](https://githupekka-sillbergb.com/), Tampere University
+- [Pekka Sillberg](https://github.com/pekka-sillberg), Tampere University
 
 ## Digiluonto Cypress
 
-- [Pekka Sillberg](https://githupekka-sillbergb.com/), Tampere University
+- [Pekka Sillberg](https://github.com/pekka-sillberg), Tampere University
 
 ## Digiluonto Strapi
 
