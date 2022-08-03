@@ -1,2 +1,44 @@
-# digiluonto-oss
-Digiluonto Open Source Software release tree
+# Digiluonto OSS
+
+Digiluonto Open Source Software release tree.
+
+# Contributors
+
+## Project Lead
+
+- Jere Grönman, Tampere University
+- [Tuomas Pohjola](https://github.com/Tpohjola), University of Turku
+
+## Customer/User support and Content author
+
+- [Jani Viljanen](https://github.com/JaniVil), Tampere University
+
+## Digiluonto Client
+
+- [Teemu Katajisto](https://github.com/Tepazi), Tampere University
+- [Teemu Jönkkäri](https://github.com/teemujonkkari), Tampere University
+- [Pekka Sillberg](https://githupekka-sillbergb.com/), Tampere University
+
+## Digiluonto Editor
+
+- [Teemu Jönkkäri](https://github.com/teemujonkkari), Tampere University
+- [Pekka Sillberg](https://githupekka-sillbergb.com/), Tampere University
+- [Teemu Katajisto](https://github.com/Tepazi), Tampere University
+
+## Digiluonto Mesh
+
+- [Teemu Jönkkäri](https://github.com/teemujonkkari), Tampere University
+- [Pekka Sillberg](https://githupekka-sillbergb.com/), Tampere University
+
+## Digiluonto Cypress
+
+- [Pekka Sillberg](https://githupekka-sillbergb.com/), Tampere University
+
+## Digiluonto Strapi
+
+- [Teemu Jönkkäri](https://github.com/teemujonkkari), Tampere University
+
+---
+
+![Rajoittaja!](/assets/maaseutu.jpg "Rajoittaja")
+![Rajoittaja!](/assets/maatalousrahasto.jpg "Rajoittaja")
