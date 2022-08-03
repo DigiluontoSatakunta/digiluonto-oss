@@ -40,5 +40,5 @@ Digiluonto Open Source Software release tree.
 
 ---
 
-![rahoittaja!](/assets/maaseutu.jpg "rahoittaja")
-![rahoittaja!](/assets/maatalousrahasto.jpg "rahoittaja")
+![Maaseutu 2020!](/assets/maaseutu.jpg "Maaseutu 2020")
+![Euroopan maaseudun kehittämisen maatalousrahasto!](/assets/maatalousrahasto.jpg "Euroopan maaseudun kehittämisen maatalousrahasto")
