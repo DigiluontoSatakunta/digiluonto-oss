@@ -10,7 +10,6 @@ export const QrCamera = () => {
   const handleError = err => {
     console.log(err);
   };
-  console.log(group);
   const visitedPlaces = JSON.parse(
     localStorage.getItem("visitedPlaces") || "[]"
   );
